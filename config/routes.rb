@@ -1,4 +1,8 @@
 Cloclo::Application.routes.draw do
+  get '/'       => 'home#index', :as => :home
+  get 'login'   => 'home#login'
+  get 'logout'  => 'home#logout'
+  get '/create.html'  => 'home#create'
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
