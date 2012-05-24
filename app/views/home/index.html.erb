@@ -30,7 +30,7 @@
 		<div class="rfloat" id="topFunctions">
 			<ul>
 				<% if @access_token %>
-				<li><!--<a href="friendlist.html">編輯名單</a>--><%=link_to '編輯名單', friends_path %></li>
+				<li><%=link_to '編輯名單', friends_path %></li>
 				<li><%= link_to '使用說明', help_path %></li>
 				<li><%= link_to '登出', logout_path %></a></li>
 				<% else %>
@@ -118,7 +118,7 @@
 <script type="text/javascript" src="javascripts/jquery.ui.touch-punch.min.js"></script>
 <script type="text/javascript" src="javascripts/jquery-ui-1.8.20.custom.min.js"></script>
 <script type="text/javascript" src="javascripts/javascript_main.js"></script>-->
-<!--<%= javascript_include_tag "application" %>  -->
+
 
 <!--</body>
 
