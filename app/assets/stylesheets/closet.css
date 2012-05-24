@@ -1,0 +1,47 @@
+
+@charset "UTF-8";
+.closet{
+	/*background: #D08D34;*/
+	width: 550px;
+	display: inline-block;
+	margin-left: auto; margin-right: auto;
+}
+.shelf {
+	width: 500px;
+	height: 580px;
+	padding: 10px;
+	color: #E5E5E5;
+	text-align: center;
+	background-color: #D08D34;
+	border-radius: 5px;
+}
+td.shelf_space {
+	background: #BB8D3F;
+	border: 5px solid #D08D34;
+	-webkit-transition-property: background-color, font;
+	-webkit-transition-duration: 0.5s, 0.5s;
+	-webkit-transition-timing-function: ease-in, ease-in;
+	-moz-transition-property: background-color, font;
+	-moz-transition-duration: 0.5s, 0.5s;
+	-moz-transition-timing-function: ease-in, ease-in;
+}
+td.shelf_space:hover {
+	background: #E8BB68;
+	color: #6D5120;
+}
+/*衣櫃動態　closet_mouseover可以不用了*/
+.closet_mouseover {
+	background: #E8BB68;
+	color: #000000;
+}
+
+td.cloth_on {
+	background: #E8BB68;
+	color: #6D5120;
+}
+#new_cloth{
+	width: 180px;
+
+	z-index: 25;
+	border-radius: 10px;
+}
