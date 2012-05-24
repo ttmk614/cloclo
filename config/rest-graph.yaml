@@ -1,6 +1,6 @@
 development:
-    app_id: '455423734472568'
-    secret: '5596cc823a51c2d90a320959140f3937'
+    app_id: '221530871283397'
+    secret: '2816d18fb7dbf5552253c5ca03da059d'
     callback_host: 'localhost:3000'
 
 production:
