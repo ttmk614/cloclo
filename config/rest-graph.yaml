@@ -1,0 +1,9 @@
+development:
+    app_id: '455423734472568'
+    secret: '5596cc823a51c2d90a320959140f3937'
+    callback_host: 'localhost:3000'
+
+production:
+    app_id: '455423734472568'
+    secret: '5596cc823a51c2d90a320959140f3937'
+    callback_host: 'clocloyabi.herokuapp.com'

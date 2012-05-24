@@ -1,13 +1,13 @@
 class HomeController < ApplicationController
 	include RestGraph::RailsUtil
-	#before_filter :login_facebook, :only => [:login]
-	#before_filter :load_facebook, :except => [:login]
+	before_filter :login_facebook, :only => [:login]
+	before_filter :load_facebook, :except => [:login]
 	
 	def index
       @access_token = rest_graph.access_token
       if @access_token
         @me = rest_graph.get('/me')
-        @friendlist = rest_graph.get('/friendlists')
+        @friendlist = rest_graph.get('me/friendlists')
       end
   end
 
@@ -20,8 +20,11 @@ class HomeController < ApplicationController
     redirect_to home_path
   end
 
-  def friendlist
-
+  def friends
+    redirect_to home_path
+  end
+  def help
+    redirect_to home_path
   end
 
 private
