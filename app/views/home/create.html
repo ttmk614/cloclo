@@ -1,7 +1,15 @@
+<%= javascript_include_tag "webcam_script", "webcam" %>
 <div id="create" class="pop_up">
     <div class="popupHeader"><span>＋　新增衣服</span><span class="rfloat" id="close">×</span></div>
 	<div class="popupMain">
-        <div class="clothPic lfloat"><font size="+4">?</font></div>
+        <div class="clothPic lfloat" id="screen"></div>
+        <div id="buttons">
+        <div class="lfloat">
+                <a id="shootButton" href="">Shoot!</a>
+                <a id="cancelButton" href="">Cancel</a>
+        </div>
+        </div>
+        
         <div class="input_attr">
         	<form>
             	<span>照片</span>

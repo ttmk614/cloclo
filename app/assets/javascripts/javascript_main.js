@@ -42,7 +42,7 @@ $( "#close, #shadow" ).click(function(){
 $( "#create" ).click(function() {
 	$( "#window" ).css("z-index", 100);
 	$( "#window" ).css("height", "315px").show("clip",{},'fast'); 
-	document.getElementById( 'window' ).innerHTML = '<iframe src="create.html" scrolling="yes" frameborder="0" width="800px" height="100%"></iframe>';
+	document.getElementById( 'window' ).innerHTML = '<iframe src="create.html" scrolling="yes" frameborder="0" width="900px" height="100%"></iframe>';
 });
 
 /*$(  "td" ).mouseover(function() {
