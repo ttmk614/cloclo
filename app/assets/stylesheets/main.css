@@ -38,6 +38,7 @@ table{
 }
 .rfloat{ float:right; } .lfloat{ float:left;  }
 #window {
+	display: none;
 	overflow: hidden;
 	position: absolute;
 	width: 700px;
@@ -48,6 +49,7 @@ table{
 	box-shadow: 2px 2px 10px #000;
 }
 #shadow {
+	display: none;
 	position: fixed;
 	height: 5px;
 	width: 100%;
@@ -80,8 +82,8 @@ table{
 }
 #topContent{
 	margin: 0 auto;
-	width: 80%;
 	height: inherit;
+	width: 80%;
 }
 #logo{
 	display: inline-block; 
@@ -93,6 +95,7 @@ table{
 	background-size: 125px 35px;
 }
 #topFunctions{
+	position: relative;
 	width: 200px;
 	display: inline-block;
 	position: absolute;
@@ -117,6 +120,10 @@ table{
 	bottom: 0;
 }
 #globalContainer{
+	margin: 0 auto;
+	width: 100%;
+}
+#content{
 	position: relative;
 	margin: 0 auto;
 	top: 60px;
@@ -132,11 +139,13 @@ table{
 #mainContainer{
 	float: left;
 	position: absolute;
+	height: 100%;
 	width: 55%;
 	padding-left: 25px;
 	display: inline-block;
 	margin: 0 auto;
 	text-align: center;
+	overflow: auto;
 }
 .welcome_box{
 	color: #157402;

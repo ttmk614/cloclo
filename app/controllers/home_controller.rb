@@ -7,7 +7,7 @@ class HomeController < ApplicationController
       @access_token = rest_graph.access_token
       if @access_token
         @me = rest_graph.get('/me')
-        @friendlist = rest_graph.get('me/friendlists')
+        @friends = rest_graph.get('me/friends')
       end
   end
 
@@ -21,8 +21,13 @@ class HomeController < ApplicationController
   end
 
   def friends
-    redirect_to home_path
+      @access_token = rest_graph.access_token
+      if @access_token
+        @me = rest_graph.get('/me')
+        @friends = rest_graph.get('me/friends')
+      end
   end
+
   def help
     redirect_to home_path
   end

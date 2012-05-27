@@ -1,0 +1,47 @@
+<div id="globalContainer">
+	<div id="top">
+		<div id="shadow">
+			<div><button id="close" class="rfloat">Close</button></div>
+			</div>
+		<div id="window"></div>
+		<div id="topContent">
+			<div class="lfloat" id="logo">
+				<!--LOGO-->
+			</div>
+			<div class="rfloat" id="topFunctions">
+				<ul>
+					<% if @access_token %>
+					<li><%= link_to '檢視衣櫃', home_path %></li>
+					<li><%= link_to '編輯名單', friends_path %></li>
+					<li><%= link_to '使用說明', help_path %></li>
+					<li><%= link_to '登出', logout_path %></a></li>
+					<% else %>
+					<li><%= link_to 'Login', login_path %></li>
+					<% end %>
+				</ul>
+			</div>
+		</div>
+	</div>
+
+	<div id="content">
+	<% if @access_token %>
+	<div id="left_menu" class="lfloat">
+		<%= render "home/leftMenu" %>    
+	</div>
+
+	<div id="mainContainer" class="lfloat">
+		<div class="friends">
+		<% @friends['data'].each do |friend| %>
+			<div class="afriend">
+				<img src="https://graph.facebook.com/<%= friend['id'] %>/picture" />
+				<span><%= friend['name'] %></span>
+			</div>
+		<% end %>
+		</div>
+	</div>
+	<div id="right_menu" class="rfloat"><%= render "home/rightMenu" %></div>
+
+	<% end %>
+	</div>
+	<div id="footer"></div>
+</div>

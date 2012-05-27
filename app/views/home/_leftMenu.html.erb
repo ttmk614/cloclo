@@ -1,0 +1,24 @@
+		<div class="welcome_box">
+			<% if @access_token %>
+			<img src="https://graph.facebook.com/me/picture?access_token=<%= @access_token %>" />
+			<div class="username"><%= @me['name'] %></div> 
+			<% else %>
+    		<%= image_tag "userimage.jpg" %>
+    		<div class="username">Hsiang Chih</div> 
+    		<% end %>
+    		       
+		</div>
+    <!--<form id="closetFunction">
+	    <div align="left"><button id="create">Create</button></div>
+	    <div align="left"><button type="submit">Search</button></div>
+	    <div align="left"><button type="submit">Settings</button></div>
+    </form>-->
+	    <ul id="closetFunction">
+		    <li id="create">　＋　Create</li>
+		    <li id="search">　＞　Search</li>
+		    <li id="settings">　＜　Settings</li>
+	    </ul>
+    	<div class="reminder">
+    		
+    		<img id="new_cloth" src="images/cloth.jpg" style="display:none;">
+    	</div>

@@ -3,7 +3,7 @@ Cloclo::Application.routes.draw do
   get '/login'   => 'home#login'
   get '/logout'  => 'home#logout'
   get '/create.html'  => 'home#create'
-  get '/friends'  => 'home#friends'
+  get '/friends'  => 'home#friends', :as => :friends
   get '/help'     => 'home#help'
   # The priority is based upon order of creation:
   # first created -> highest priority.
