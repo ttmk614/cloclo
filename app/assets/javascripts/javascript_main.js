@@ -7,6 +7,7 @@ $(function() {
 $( "#create, #search" ).click(function() {
 	$( "#shadow" ).css("height", $(document).height());  
 	$( "#shadow" ).css("z-index", 90);
+	$( "#shadow" ).css("display", "block");
 	//$( "#shadow" ).fadeIn();  
     //return false;  
 });
