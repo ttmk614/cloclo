@@ -5,6 +5,8 @@ $(function() {
 });
 
 $( "#create, #search" ).click(function() {
+	var new_shadow = '<div id="shadow"></div>';
+	$( "#topContent" ).before(new_shadow);
 	$( "#shadow" ).css("height", $(document).height());  
 	$( "#shadow" ).css("z-index", 90);
 	$( "#shadow" ).css("display", "block");
@@ -40,8 +42,10 @@ $( "#close, #shadow" ).click(function(){
 });*/
 
 $( "#create" ).click(function() {
+	var new_window = '<div id="window"></div>';
+	$( "#topContent" ).before(new_window);
 	$( "#window" ).css("z-index", 100);
-	$( "#window" ).css("height", "315px").show("clip",{},'fast'); 
+	$( "#window" ).css("height", "315px").show("clip",{},'fast');
 	document.getElementById( 'window' ).innerHTML = '<iframe src="create.html" scrolling="yes" frameborder="0" width="900px" height="100%"></iframe>';
 });
 
@@ -73,3 +77,12 @@ $(" #settings ").click(function(){
 	}*/
 });
 
+$( "#submit_cloth" ).click(function(){
+	//var ifr = parent.document.getElementById("create_iframe");
+	//ifr.parentNode.removeChild(ifr);
+	var sha = parent.document.getElementById("shadow");
+	sha.parentNode.removeChild(sha);
+
+	var win = parent.document.getElementById("window");
+	win.parentNode.removeChild(win);
+});

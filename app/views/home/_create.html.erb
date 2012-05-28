@@ -1,0 +1,54 @@
+<%= javascript_include_tag "webcam_script", "webcam" %>
+<div id="create" class="pop_up">
+    <div class="popupHeader"><span>＋　新增衣服</span><span class="rfloat" id="close">×</span></div>
+	<div class="popupMain">
+        <div class="clothPic lfloat" id="screen"></div>
+        <div id="buttons">
+        <div class="lfloat">
+                <a id="shootButton" href="">Shoot!</a>
+                <a id="cancelButton" href="">Cancel</a>
+        </div>
+        </div>
+        
+        <div class="input_attr">
+        	<form>
+            	<span>照片</span>
+                檔案<input type="file" name="upload_pic"  class="input"/>＼照相＼連結<br />
+        		<span>隱私</span>
+                <input type="radio" name="choose_privacy" value="public" class="input"> 公開
+                <input type="radio" name="choose_privacy" value="private" class="input"> 非公開<br>
+        		<span>顏色</span>
+                <input type="checkbox" name="choose_color" value="red" class="input"><font color="#ED0000">■</font>
+                <input type="checkbox" name="choose_color" value="orange" class="input"><font color="#FF9406">■</font>
+                <input type="checkbox" name="choose_color" value="yellow" class="input"><font color="#FFFD00">■</font>
+                <input type="checkbox" name="choose_color" value="green" class="input"><font color="#00D600">■</font>
+                <input type="checkbox" name="choose_color" value="l_blue" class="input"><font color="#07C0C2">■</font>
+                <input type="checkbox" name="choose_color" value="blue" class="input"><font color="#0001BF">■</font>
+                <input type="checkbox" name="choose_color" value="purple" class="input"><font color="#792EA5">■</font>
+                <input type="checkbox" name="choose_color" value="pink" class="input"><font color="#FF97BF">■</font>
+                <input type="checkbox" name="choose_color" value="white" class="input"><font color="#FFFFFF">■</font>
+                <input type="checkbox" name="choose_color" value="gray" class="input"><font color="#999D9C">■</font>
+                <input type="checkbox" name="choose_color" value="black" class="input"><font color="#000000">■</font>
+                <input type="checkbox" name="choose_color" value="brown" class="input"><font color="#865415">■</font><br />
+                <span>分類</span>
+                <input type="checkbox" name="choose_type" value="t11" class="input">T恤
+                <input type="checkbox" name="choose_type" value="t12" class="input">襯衫
+                <input type="checkbox" name="choose_type" value="t13" class="input">Polo衫
+                <input type="checkbox" name="choose_type" value="t14" class="input">無袖
+                <input type="checkbox" name="choose_type" value="t15" class="input">高領
+                <input type="checkbox" name="choose_type" value="t16" class="input">毛衣<br /> 　　　
+                <input type="checkbox" name="choose_type" value="t21" class="input">圍巾
+                <input type="checkbox" name="choose_type" value="t22" class="input">帽子
+                <input type="checkbox" name="choose_type" value="t23" class="input">髮飾
+                <input type="checkbox" name="choose_type" value="t24" class="input">飾品<br /> 　　　
+                <input type="checkbox" name="choose_type" value="t31" class="input">外套
+                <input type="checkbox" name="choose_type" value="t32" class="input">大衣<br /> 　　　
+                <input type="checkbox" name="choose_type" value="t41" class="input">牛仔褲
+                <input type="checkbox" name="choose_type" value="t42" class="input">休閒褲
+                <input type="checkbox" name="choose_type" value="t43" class="input">西裝褲
+                <input type="checkbox" name="choose_type" value="t44" class="input">長裙
+                <input type="checkbox" name="choose_type" value="t45" class="input">短裙<br />	<button id="submit_cloth" class="submit_all" type="submit" >送出資料</button> 　　　 
+        	</form>
+        </div>
+    </div>
+</div>
