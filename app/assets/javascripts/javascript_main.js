@@ -15,14 +15,16 @@ $( "#create, #search" ).click(function() {
 });
 
 $( "#close, #shadow" ).click(function(){  
-    $( "#shadow" ).css("height", 0);  
-	$( "#shadow" ).css("z-index", -100);
-	//$( "#shadow" ).fadeOut();  
-    //return false;
-	/*var iframe = document.getElementById('window');
-    iframe.parentNode.removeChild(iframe);  */
-	$( "#window" ).css("height", 0);  
-	$( "#window" ).css("z-index", -100); 
+    var sha = parent.document.getElementById("shadow");
+	sha.parentNode.removeChild(sha);
+
+	var win = parent.document.getElementById("window");
+	win.parentNode.removeChild(win);
+
+    //$( "#shadow" ).css("height", 0);  
+	//$( "#shadow" ).css("z-index", -100);
+	//$( "#window" ).css("height", 0);  
+	//$( "#window" ).css("z-index", -100); 
 
 	//alert('Handler for .submit() called.');
 	document.getElementById("new_cloth").style.display='block';
