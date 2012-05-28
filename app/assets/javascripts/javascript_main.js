@@ -47,7 +47,7 @@ $( "#create" ).click(function() {
 	var new_window = '<div id="window"></div>';
 	$( "#topContent" ).before(new_window);
 	$( "#window" ).css("z-index", 100);
-	$( "#window" ).css("height", "315px").show("clip",{},'fast');
+	$( "#window" ).css("height", "330px").show("clip",{},'fast');
 	document.getElementById( 'window' ).innerHTML = '<iframe src="create.html" scrolling="yes" frameborder="0" width="900px" height="100%"></iframe>';
 });
 
