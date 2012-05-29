@@ -7,7 +7,16 @@ class HomeController < ApplicationController
       @access_token = rest_graph.access_token
       if @access_token
         @me = rest_graph.get('/me')
-        @friends = rest_graph.get('me/friends')
+
+        #check by loading the existing user data
+        if User.find_by_account( @me['id'] )
+          @user = User.find_by_account( @me['id'] )
+        #for first use
+        else
+          @user = User.create(:account => @me['id'],
+                              :friend => nil,)
+        end
+        
       end
   end
 
@@ -25,7 +34,13 @@ class HomeController < ApplicationController
       if @access_token
         @me = rest_graph.get('/me')
         @friends = rest_graph.get('me/friends')
+        @user = User.find_by_account( @me['id'] )
       end
+
+  end
+
+  def editfriend
+
   end
 
   def help
@@ -39,7 +54,7 @@ private
 
   def login_facebook
     rest_graph_setup(:auto_authorize         => true,
-                     :auto_authorize_scope   => 'read_friendlists',
+                     :auto_authorize_scope   => 'read_friendlists, publish_stream',
                      :ensure_authorized      => true,
                      :write_session          => true)
   end  	

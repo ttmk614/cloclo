@@ -3,6 +3,6 @@ class User < ActiveRecord::Base
 
   validates :account, :presence => true
 
-  has_many :clothes
+  has_many :cloths
   has_many :posts
 end

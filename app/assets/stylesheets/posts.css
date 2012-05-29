@@ -1,0 +1,110 @@
+@charset "UTF-8";
+
+
+/*.friends{
+	text-align: left;
+	padding: 0 10px;
+	margin: 5px 5px 20px 5px;
+	background: #FFFFEB;
+	border-radius: 10px;
+	border: 5px solid rgba(172,213,152,0.7);
+}*/
+.aPost{
+	border-top: 1px solid rgba(172,213,152,0.5);
+	padding: 5px 0;
+	color: #3B6687;
+	font-weight: bold;
+}
+.aPost:hover{
+	background: #3B6687;
+	background-opacity: 0.5;
+	color: #FFF;
+}
+.aPost img{
+	padding: 3px;
+	margin: 3px;
+}
+.postContent{
+
+}
+.postTime{
+	
+}
+
+
+
+/*跟頁籤有關的CSS*/
+#right_menu{
+	position: absolute;
+	left: 800px;
+	width: 200px;
+	/*overflow: auto;*/	
+}
+textarea {
+  border-radius: 3px;
+  width: 175px;
+  height: 50px;
+  font-size: 8px;
+  padding: 20px;
+  color: gray;
+  background: #DFEFFC;
+  box-shadow: inset 0 1px 1px rgba(0,0,0,.4);
+}
+textarea:focus{
+  /* Cancel the orange outline when in focus */
+  outline: none;
+}
+textarea::-webkit-input-placeholder{
+  /* Style the textarea placeholder for webkit browsers */
+  color: gray;
+  text-shadow: none;
+  opacity: .5;
+}
+#sendPost{
+
+}
+#right_menu #tabs{
+	background: none;
+}
+#right_menu .tabs_back{
+	border: 0;
+}
+
+#right_menu ul.tabs{
+	background: none;
+	border: 0;
+	padding: 0;
+	font-size: 12px;
+}
+#right_menu ul li{
+	padding: 0;
+	margin: 0;
+	border: 0;
+	width: 90px;
+	text-align: center;
+	color: #688EAC;
+}
+#right_menu .tab_container{
+	font-size: 14px;
+	background: #DFEFFC;
+	height: 550px;
+	width: 100%;
+	border-bottom-left-radius: 7px;
+	border-bottom-right-radius: 7px;
+	border-top-right-radius: 7px;
+}
+.tab_content h1,h2,p,a{
+	color: #3b6687;
+}
+.tab_content{
+	height: 90%;
+	overflow: hidden;
+	/* scrollbar-base-color:       #CCCCCC; /**/
+	/* scrollbar-arrow-color:      #3B6687; /* 捲軸箭頭 */
+	/* scrollbar-track-color:      #a0bfe8; /* 捲軸底色 */
+	/* scrollbar-3dlight-color:    #EEEEEE; /* 捲軸左與上外邊框 */
+	/* scrollbar-highlight-color:  #FFFFFF; /* 捲軸左與上內邊框 */
+	/* scrollbar-face-color:       #3B6687; /* 捲軸顏色 */
+	/* scrollbar-shadow-color:     #999999; /* 捲軸右與下內邊框 */
+	/* scrollbar-darkshadow-color: #666666; /* 捲軸右與下外邊框 */
+}

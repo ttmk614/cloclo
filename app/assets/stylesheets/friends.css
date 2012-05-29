@@ -10,13 +10,24 @@
 .afriend{
 	border-top: 1px solid rgba(172,213,152,0.5);
 	padding: 5px 0;
+	color: #718468;
+	font-weight: bold;
+}
+.afriend:hover{
+	background: #718468;
+	color: #FFF;
 }
 .afriend img{
 	padding: 3px;
 	margin: 3px;
 }
-.afriend span{
+.check{
+	margin: 20px 0;
 	display: inline-block;
+	width: 20px;
+	height: 20px;
+	color: #FFFFEB;
+}
+.checked{
 	color: #718468;
-	font-weight: bold;
 }
