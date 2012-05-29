@@ -14,6 +14,7 @@
 ActiveRecord::Schema.define(:version => 20120521112938) do
 
   create_table "cloths", :force => true do |t|
+    t.integer  "user_id"
     t.string   "image"
     t.text     "description"
     t.string   "color"
@@ -28,10 +29,10 @@ ActiveRecord::Schema.define(:version => 20120521112938) do
 
   create_table "comments", :force => true do |t|
     t.text     "content"
+    t.integer  "post_id"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
     t.integer  "user_id"
-    t.integer  "post_id"
   end
 
   create_table "posts", :force => true do |t|

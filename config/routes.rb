@@ -5,6 +5,7 @@ Cloclo::Application.routes.draw do
   get '/create.html'  => 'home#create'
   get '/friends'  => 'home#friends', :as => :friends
   get '/help'     => 'home#help'
+  post "cloths/new" => "cloths#upload"
   # The priority is based upon order of creation:
   # first created -> highest priority.
 

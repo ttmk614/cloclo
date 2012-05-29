@@ -1,7 +1,18 @@
 <div id="create" class="pop_up">
     <div class="popupHeader"><span>＋　新增衣服</span><span class="rfloat" id="close">×</span></div>
 	<div class="popupMain">
-        <div class="clothPic lfloat"><font size="+4">?</font></div>
+        <div id="photoshoot" style="float: left;">
+                <div class="clothPic lfloat" id="screen"></div>
+                <div id="buttons" style="text-align: center;">
+                        <div>
+                        <!--<a id="shootButton" href="">Shoot!</a>
+                        <a id="cancelButton" href="">Cancel</a>-->
+                        <button id="shootButton">Shoot!</button>
+                        <button id="cancelButton">Cancel</button>
+                        </div>
+                </div>
+        </div>
+        
         <div class="input_attr">
         	<form>
             	<span>照片</span>
@@ -39,7 +50,7 @@
                 <input type="checkbox" name="choose_type" value="t42" class="input">休閒褲
                 <input type="checkbox" name="choose_type" value="t43" class="input">西裝褲
                 <input type="checkbox" name="choose_type" value="t44" class="input">長裙
-                <input type="checkbox" name="choose_type" value="t45" class="input">短裙<br />	            <button class="submit_all" type="submit" >送出資料</button> 　　　 
+                <input type="checkbox" name="choose_type" value="t45" class="input">短裙<br />	<button id="submit_cloth" class="submit_all" type="submit" >送出資料</button> 　　　 
         	</form>
         </div>
     </div>

@@ -5,6 +5,8 @@ $(function() {
 });
 
 $( "#create, #search" ).click(function() {
+	var new_shadow = '<div id="shadow"></div>';
+	$( "#topContent" ).before(new_shadow);
 	$( "#shadow" ).css("height", $(document).height());  
 	$( "#shadow" ).css("z-index", 90);
 	$( "#shadow" ).css("display", "block");
@@ -13,14 +15,16 @@ $( "#create, #search" ).click(function() {
 });
 
 $( "#close, #shadow" ).click(function(){  
-    $( "#shadow" ).css("height", 0);  
-	$( "#shadow" ).css("z-index", -100);
-	//$( "#shadow" ).fadeOut();  
-    //return false;
-	/*var iframe = document.getElementById('window');
-    iframe.parentNode.removeChild(iframe);  */
-	$( "#window" ).css("height", 0);  
-	$( "#window" ).css("z-index", -100); 
+    var sha = parent.document.getElementById("shadow");
+	sha.parentNode.removeChild(sha);
+
+	var win = parent.document.getElementById("window");
+	win.parentNode.removeChild(win);
+
+    //$( "#shadow" ).css("height", 0);  
+	//$( "#shadow" ).css("z-index", -100);
+	//$( "#window" ).css("height", 0);  
+	//$( "#window" ).css("z-index", -100); 
 
 	//alert('Handler for .submit() called.');
 	document.getElementById("new_cloth").style.display='block';
@@ -40,9 +44,11 @@ $( "#close, #shadow" ).click(function(){
 });*/
 
 $( "#create" ).click(function() {
+	var new_window = '<div id="window"></div>';
+	$( "#topContent" ).before(new_window);
 	$( "#window" ).css("z-index", 100);
-	$( "#window" ).css("height", "315px").show("clip",{},'fast'); 
-	document.getElementById( 'window' ).innerHTML = '<iframe src="create.html" scrolling="yes" frameborder="0" width="800px" height="100%"></iframe>';
+	$( "#window" ).css("height", "330px").show("clip",{},'fast');
+	document.getElementById( 'window' ).innerHTML = '<iframe src="create.html" scrolling="yes" frameborder="0" width="900px" height="100%"></iframe>';
 });
 
 /*$(  "td" ).mouseover(function() {
@@ -73,3 +79,12 @@ $(" #settings ").click(function(){
 	}*/
 });
 
+$( "#submit_cloth" ).click(function(){
+	//var ifr = parent.document.getElementById("create_iframe");
+	//ifr.parentNode.removeChild(ifr);
+	var sha = parent.document.getElementById("shadow");
+	sha.parentNode.removeChild(sha);
+
+	var win = parent.document.getElementById("window");
+	win.parentNode.removeChild(win);
+});
