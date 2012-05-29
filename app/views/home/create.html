@@ -14,7 +14,7 @@
         </div>
         
         <div class="input_attr">
-        	<form>
+        	<form action="/create_form">
             	<span>照片</span>
                 檔案<input type="file" name="upload_pic"  class="input"/>＼照相＼連結<br />
         		<span>隱私</span>
@@ -39,23 +39,26 @@
                 <input type="checkbox" name="choose_color" value="black" class="input"><font color="#000000">■</font>
                 <input type="checkbox" name="choose_color" value="brown" class="input"><font color="#865415">■</font><br />
                 <span>分類</span>
-                <input type="checkbox" name="choose_type" value="t11" class="input">T恤
-                <input type="checkbox" name="choose_type" value="t12" class="input">襯衫
-                <input type="checkbox" name="choose_type" value="t13" class="input">Polo衫
-                <input type="checkbox" name="choose_type" value="t14" class="input">無袖
-                <input type="checkbox" name="choose_type" value="t15" class="input">高領
-                <input type="checkbox" name="choose_type" value="t16" class="input">毛衣<br /> 　　　
-                <input type="checkbox" name="choose_type" value="t21" class="input">圍巾
-                <input type="checkbox" name="choose_type" value="t22" class="input">帽子
-                <input type="checkbox" name="choose_type" value="t23" class="input">髮飾
-                <input type="checkbox" name="choose_type" value="t24" class="input">飾品<br /> 　　　
-                <input type="checkbox" name="choose_type" value="t31" class="input">外套
-                <input type="checkbox" name="choose_type" value="t32" class="input">大衣<br /> 　　　
-                <input type="checkbox" name="choose_type" value="t41" class="input">牛仔褲
-                <input type="checkbox" name="choose_type" value="t42" class="input">休閒褲
-                <input type="checkbox" name="choose_type" value="t43" class="input">西裝褲
-                <input type="checkbox" name="choose_type" value="t44" class="input">長裙
-                <input type="checkbox" name="choose_type" value="t45" class="input">短裙<br />	<button id="submit_cloth" class="submit_all" type="submit" >送出資料</button> 　　　 
+                <input type="radio" name="choose_type" value="t11" class="input">T恤
+                <input type="radio" name="choose_type" value="t12" class="input">襯衫
+                <input type="radio" name="choose_type" value="t13" class="input">Polo衫
+                <input type="radio" name="choose_type" value="t14" class="input">無袖
+                <input type="radio" name="choose_type" value="t15" class="input">高領
+                <input type="radio" name="choose_type" value="t16" class="input">毛衣<br /> 　　　
+                <input type="radio" name="choose_type" value="t21" class="input">圍巾
+                <input type="radio" name="choose_type" value="t22" class="input">帽子
+                <input type="radio" name="choose_type" value="t23" class="input">髮飾
+                <input type="radio" name="choose_type" value="t24" class="input">飾品<br /> 　　　
+                <input type="radio" name="choose_type" value="t31" class="input">外套
+                <input type="radio" name="choose_type" value="t32" class="input">大衣<br /> 　　　
+                <input type="radio" name="choose_type" value="t41" class="input">牛仔褲
+                <input type="radio" name="choose_type" value="t42" class="input">休閒褲
+                <input type="radio" name="choose_type" value="t43" class="input">西裝褲
+                <input type="radio" name="choose_type" value="t44" class="input">長裙
+                <input type="radio" name="choose_type" value="t45" class="input">短裙<br /><br />
+                <span>補充</span><br/>            
+                <textarea name="description" onkeypress="if(event.which===13)this.parentNode.submit()"></textarea>　 	
+                <button id="submit_cloth" class="submit_all" type="submit" >送出資料</button> 　　
         	</form>
         </div>
     </div>

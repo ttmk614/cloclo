@@ -7,6 +7,7 @@ Cloclo::Application.routes.draw do
   get '/help'     => 'home#help'
   post "cloths/new" => "cloths#upload"
   post "cloths/file" => "cloths#upload_file"
+  get '/create_form' => 'cloths#create_form'
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
