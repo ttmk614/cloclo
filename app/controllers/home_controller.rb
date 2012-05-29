@@ -16,7 +16,7 @@ class HomeController < ApplicationController
           @user = User.create(:account => @me['id'],
                               :friend => nil,)
         end
-        
+        cookies[:user] = @user.account
       end
   end
 

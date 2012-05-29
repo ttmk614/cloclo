@@ -18,6 +18,11 @@
             	<span>照片</span>
                 檔案<input type="file" name="upload_pic"  class="input"/>＼照相＼連結<br />
         		<span>隱私</span>
+
+                <%= form_tag({:action => :upload}, :multipart => true) do %>
+                <%= file_field_tag 'picture' %>
+                <% end %>
+
                 <input type="radio" name="choose_privacy" value="public" class="input"> 公開
                 <input type="radio" name="choose_privacy" value="private" class="input"> 非公開<br>
         		<span>顏色</span>

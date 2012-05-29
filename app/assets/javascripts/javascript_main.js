@@ -10,11 +10,16 @@ $( "#create, #search" ).click(function() {
 	$( "#shadow" ).css("height", $(document).height());  
 	$( "#shadow" ).css("z-index", 90);
 	$( "#shadow" ).css("display", "block");
-	//$( "#shadow" ).fadeIn();  
-    //return false;  
+
+	$( "#shadow" ).click(function(){  
+    var sha = parent.document.getElementById("shadow");
+	sha.parentNode.removeChild(sha);
+	var win = parent.document.getElementById("window");
+	win.parentNode.removeChild(win);
+	});
 });
 
-$( "#close, #shadow" ).click(function(){  
+$( "#close" ).click(function(){  
     var sha = parent.document.getElementById("shadow");
 	sha.parentNode.removeChild(sha);
 
