@@ -87,9 +87,9 @@ $(" #settings ").click(function(){
 $( "#submit_cloth" ).click(function(){
 	//var ifr = parent.document.getElementById("create_iframe");
 	//ifr.parentNode.removeChild(ifr);
-	var sha = parent.document.getElementById("shadow");
+	/*var sha = parent.document.getElementById("shadow");
 	sha.parentNode.removeChild(sha);
 
 	var win = parent.document.getElementById("window");
-	win.parentNode.removeChild(win);
+	win.parentNode.removeChild(win);*/
 });

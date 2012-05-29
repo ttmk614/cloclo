@@ -2,11 +2,11 @@ class ClothsController < ApplicationController
 def create_form
   user = User.find_by_account(cookies[:user].to_s)
   user.cloths.create(:classification => params[:choose_type], :color => params[:choose_color], :description => params[:description], 
-                      :privacy => params[:choose_privacy]))#, :image => cookies[:user].to_s+'.jpg')#, :redRemark, :redTime, :signal
+                      :privacy => params[:choose_privacy])#, :image => cookies[:user].to_s+'.jpg')#, :redRemark, :redTime, :signal
 end
 
 def upload
-  file_name = cookies[:user].to_s + '.jpg'
+  file_name = cookies[:user].to_s + '_' + Time.now.to_i.to_s + '.jpg'
   upload_path = File.join(Rails.root, 'public', 'uploads', file_name)
   
   File.open(upload_path, 'wb') do |f|
@@ -17,16 +17,15 @@ def upload
 end
 
 def upload_file
-
-  uploaded_io = params[:picture] 
-  file_name = 'YA' + '.jpg'
+  uploaded_io = params[:upload_pic]
+  file_name = cookies[:user].to_s + '_' + Time.now.to_i.to_s + '.jpg'
   upload_path = File.join(Rails.root, 'public', 'uploads', file_name)
   
   File.open(upload_path, 'wb') do |f|
-    f.write(uploaded_io.read)
+    f.write uploaded_io.read
   end
 
-  render :text => "ok"
+  redirect_to "/created"
 end
 
 private
