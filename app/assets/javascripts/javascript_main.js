@@ -65,6 +65,7 @@ $( "#create" ).click(function() {
 $(  "td" ).mouseout(function() {
 	$(this).removeClass( 'closet_mouseover' );
 });*/
+$( "#new_cloth" ).live("mouseover", function(){ $(this).draggable(); });
 $( ".shelf_space" ).droppable({
 	hoverClass: "cloth_on",
 	drop: function( event, ui ) {

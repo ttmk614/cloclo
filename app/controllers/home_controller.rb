@@ -61,7 +61,20 @@ class HomeController < ApplicationController
     #update self- friend list
     @user.update_attribute(:friend, params[:editfriend] )
     #update selected friends 
+    params[:editfriend].each do |friend|
+      u = User.find_by_account(friend)
+      if u
+        friendfriend = u.read_attribute(:friend)
+        place = friendfriend.index( cookies['user'] )
+        if place < 0
+          newfriendfriend = friendfriend.push( cookies['user'] )
+          u.update_attribute(:friend, newfriendfriend)
+        end
 
+      end
+
+
+    end
 
     render :text => params[:editfriend]
     #respond_to do |format|
