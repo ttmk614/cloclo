@@ -9,15 +9,15 @@
 <body>
 
 <div id="browse" class="pop_up">
-	<div class="popupHeader"><span>●　格子</span><span class="rfloat" id="close">×</span></div>
+	<div class="popupHeader"><span>●　我的衣櫃</span><span class="rfloat" id="close">×</span></div>
 	<div class="popupMain">
 		<ul class="list">
 			<% @user = User.find_by_account( cookies[:user] ) %>
-			<% @cloth = @user.cloths.where(:classification => cookies[:temp]) %>
+			<% @cloth = @user.cloths.where(:private_class => cookies[:temp]) %>
 			<% @cloth.each do |clo| %>
 				<li class="hanger">
-		    		<div class="light lightAvailable">●</div>
-		    		<div class="clothPic"><img src="<%= clo['image'] %>" />
+		    		<div class="<%=clo['signal']%>">●</div>
+		    		<div class="clothPic"><img src="/uploads/<%= clo['image'] %>" />
 				</li>
 			<% end %>
 	       

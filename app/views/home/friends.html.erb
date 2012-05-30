@@ -14,12 +14,19 @@
 		<span id="friends">Save Changes</span>
 		<% @friends['data'].each do |friend| %>
 			<div class="afriend" >
-				<%= check_box_tag('checkable', 
+				<% if User.find_by_account(@me['id']).read_attribute('friend').index(friend['id']) %>
+					<%= check_box_tag('checkable', 
 								   value = friend['id'], 
-								   checked = false ) %>
+								   checked = "checked" ) %>
+					<% select = "checked" %>
+				<% else %>
+					<%= check_box_tag('checkable', value = friend['id']) %>
+					<% select = "check" %>
+				<% end %>
+				
 				<img src="https://graph.facebook.com/<%= friend['id'] %>/picture" />
 				<%= friend['name'] %>
-				<div class="check rfloat">●</div>
+				<div class="<%= select %> rfloat">●</div>
 			</div>
 		<% end %>
 		

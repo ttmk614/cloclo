@@ -51,14 +51,17 @@ class HomeController < ApplicationController
   end
 
   def editfriend
-    @access_token = rest_graph.access_token
-    @me = rest_graph.get('/me')
-    #user = cookies[:user]
+    #@access_token = rest_graph.access_token
+    #@me = rest_graph.get('/me')
+    user = cookies[:user]
 
-    @user = User.find_by_account( @me['id'] )
+    #@user = User.find_by_account( @me['id'] )
+    @user = User.find_by_account( user )
 
-    #checkingfriends = JSON.parse(params[:checkingfriends])
+    #update self- friend list
     @user.update_attribute(:friend, params[:editfriend] )
+    #update selected friends 
+
 
     render :text => params[:editfriend]
     #respond_to do |format|
