@@ -12,11 +12,13 @@ def create_form
   end
 
   user = User.find_by_account(cookies[:user].to_s)
-  user.cloths.create(:classification => params[:choose_type],
-                     :color          => params[:choose_color], 
-                     :description    => params[:description], 
-                     :privacy        => params[:choose_privacy],
-                     :image          => cookies[:path])#, :image => cookies[:user].to_s+'.jpg')#, :redRemark, :redTime, :signal
+  t = user.cloths.create(:public_class   => params[:choose_type],
+                         :color          => params[:choose_color].to_json, 
+                         :description    => params[:description], 
+                         :privacy        => params[:choose_privacy],
+                         :image          => cookies[:path], 
+                         :signal         => "lightAvailable")#, :redRemark, :redTime, :signal
+  cookies[:temp] = t[:id]
   redirect_to "/created"
 end
 
@@ -35,6 +37,14 @@ end
 def browse_method
   cookies[:temp] = params[:shelf]
   render :text => "ok"
+end
+
+def drop_method
+  user = User.find_by_account(cookies[:user])
+  t = user.cloths.find(cookies[:temp].to_i)
+  t[:private_class] = params[:shelf]
+  t.save
+  render :text => params[:shelf]
 end
 
 private

@@ -10,6 +10,7 @@ Cloclo::Application.routes.draw do
   post '/assets' => 'cloths#create_form'
   get '/created' => 'cloths#create_after'
   get '/browse.html' => 'cloths#browse'
+  
   #post "cloths/file" => "cloths#upload_file"
   #end
   #Íget '/create_form' => 'cloths#create_form'

@@ -13,10 +13,10 @@
 	<div class="popupMain">
 		<ul class="list">
 			<% @user = User.find_by_account( cookies[:user] ) %>
-			<% @cloth = @user.cloths.where(:classification => cookies[:temp]) %>
+			<% @cloth = @user.cloths.where(:private_class => cookies[:temp]) %>
 			<% @cloth.each do |clo| %>
 				<li class="hanger">
-		    		<div class="light lightAvailable">●</div>
+		    		<div class="<%= clo['signal'] %>">●</div>
 		    		<div class="clothPic"><img src="/uploads/<%= clo['image'] %>" />
 				</li>
 			<% end %>
