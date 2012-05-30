@@ -4,17 +4,22 @@ $(function() {
 		});
 });
 
-$( "#create, #search" ).click(function() {
+$( "#create, #search, .shelf_space" ).click(function() {
 	var new_shadow = '<div id="shadow"></div>';
 	$( "#topContent" ).before(new_shadow);
 	$( "#shadow" ).css("height", $(document).height());  
 	$( "#shadow" ).css("z-index", 90);
 	$( "#shadow" ).css("display", "block");
-	//$( "#shadow" ).fadeIn();  
-    //return false;  
+
+	$( "#shadow" ).click(function(){  
+    var sha = parent.document.getElementById("shadow");
+	sha.parentNode.removeChild(sha);
+	var win = parent.document.getElementById("window");
+	win.parentNode.removeChild(win);
+	});
 });
 
-$( "#close, #shadow" ).click(function(){  
+$( "#close" ).click(function(){  
     var sha = parent.document.getElementById("shadow");
 	sha.parentNode.removeChild(sha);
 
@@ -78,12 +83,70 @@ $(" #settings ").click(function(){
 	}*/
 });
 
+
+
+
+
+
+$( ".shelf_space" ).click(function(){
+	/*var new_window = '<div id="window"></div>';
+	$( "#topContent" ).before(new_window);
+	$( "#window" ).css("z-index", 100);
+	$( "#window" ).css("height", "330px").show("clip",{},'fast');
+	document.getElementById( 'window' ).innerHTML = '<iframe src="home/browse.html" scrolling="yes" frameborder="0" width="900px" height="100%"></iframe>';
+*/	
+	$.ajax({
+		url: "/cloths/browse_method",
+		data: {  hi: "haha", shelf: $(this).attr('id') },
+		success: function(data){
+			
+		}
+	}).done(function ( data ) {
+	  	if( console && console.log ) {
+		    //console.log("Sample of data:", data.slice(0, 100));
+	  	}
+	});
+
+	var new_window = '<div id="window"></div>';
+	$( "#topContent" ).before(new_window);
+	$( "#window" ).css("z-index", 100);
+	$( "#window" ).css("height", "330px").show("clip",{},'fast');
+	document.getElementById( 'window' ).innerHTML = '<iframe src="browse.html" scrolling="yes" frameborder="0" width="900px" height="100%"></iframe>';
+	/*document.cookie = $(this).attr('id');
+	var new_window = '<div id="window"></div>';
+	$( "#topContent" ).before(new_window);
+	$( "#window" ).css("z-index", 100);
+	$( "#window" ).css("height", "330px").show("clip",{},'fast');
+	document.getElementById( 'window' ).innerHTML = '<iframe src="create.html" scrolling="yes" frameborder="0" width="900px" height="100%"><div id="yabi" title=\"'+$(this).attr('id')'\"></div></iframe>';*/
+
+	/*$.ajax({
+		url: "browse",
+		data: {  hi: "haha", shelf: $(this).attr('id') },
+		success: function(data){
+			alert("haha " + data);
+		}
+	}).done(function ( data ) {
+	  	if( console && console.log ) {
+		    console.log("Sample of data:", data.slice(0, 100));
+	  	}
+	});*/
+	
+});
+
+
+
+
+
+
+
+
+
 $( "#submit_cloth" ).click(function(){
 	//var ifr = parent.document.getElementById("create_iframe");
 	//ifr.parentNode.removeChild(ifr);
-	var sha = parent.document.getElementById("shadow");
+	/*var sha = parent.document.getElementById("shadow");
 	sha.parentNode.removeChild(sha);
 
 	var win = parent.document.getElementById("window");
-	win.parentNode.removeChild(win);
+	win.parentNode.removeChild(win);*/
 });

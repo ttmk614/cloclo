@@ -9,21 +9,18 @@
 <body>
 
 <div id="browse" class="pop_up">
-	<div class="popupHeader"><span>●　格子</span><span class="rfloat close">×</span></div>
+	<div class="popupHeader"><span>●　格子</span><span class="rfloat" id="close">×</span></div>
 	<div class="popupMain">
 		<ul class="list">
-			<li class="hanger">
-		    	<div class="light lightAvailable">●</div>
-		    	<div class="clothPic"><img src="images/cloth.jpg" />
-			</li>
-	        <li class="hanger">
-		    	<div class="light lightAvailable">●</div>
-		    	<div class="clothPic"><img src="images/cloth2.jpg" />
-			</li>
-			<li class="hanger">
-		    	<div class="light lightNotAvailable">●</div>
-		    	<div class="clothPic"><img src="images/cloth.jpg" />
-			</li>
+			<% @user = User.find_by_account( cookies[:user] ) %>
+			<% @cloth = @user.cloths.where(:classification => cookies[:temp]) %>
+			<% @cloth.each do |clo| %>
+				<li class="hanger">
+		    		<div class="light lightAvailable">●</div>
+		    		<div class="clothPic"><img src="<%= clo['image'] %>" />
+				</li>
+			<% end %>
+	       
 		</ul>
 	</div>
 </div>

@@ -16,7 +16,7 @@ class HomeController < ApplicationController
           @user = User.create(:account => @me['id'],
                               :friend => nil,)
         end
-        
+        cookies[:user] = @user.account
       end
   end
 
@@ -74,6 +74,7 @@ class HomeController < ApplicationController
   def help
     redirect_to home_path
   end
+
 
 private
   def load_facebook
