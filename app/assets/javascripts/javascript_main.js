@@ -53,7 +53,9 @@ $( "#create" ).click(function() {
 	$( "#topContent" ).before(new_window);
 	$( "#window" ).css("z-index", 100);
 	$( "#window" ).css("height", "330px").show("clip",{},'fast');
-	document.getElementById( 'window' ).innerHTML = '<iframe src="create.html" scrolling="yes" frameborder="0" width="900px" height="100%"></iframe>';
+	document.getElementById( 'window' ).innerHTML = '<iframe src="create.html" scrolling="yes" frameborder="0" width="900px" height="100%"><div height="100">YAAAAA</div></iframe>';
+	var temp = "yaa=chuya";
+	document.cookie = temp;
 });
 
 /*$(  "td" ).mouseover(function() {
@@ -64,7 +66,8 @@ $(  "td" ).mouseout(function() {
 	$(this).removeClass( 'closet_mouseover' );
 });*/
 
-$( "#new_cloth" ).draggable();
+$( "#new_cloth" ).live("mouseover", function(){ $(this).draggable(); });
+
 $( ".shelf_space" ).droppable({
 	hoverClass: "cloth_on",
 	drop: function( event, ui ) {
