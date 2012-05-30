@@ -52,7 +52,7 @@ $( "#create" ).click(function() {
 	var new_window = '<div id="window"></div>';
 	$( "#topContent" ).before(new_window);
 	$( "#window" ).css("z-index", 100);
-	$( "#window" ).css("height", "330px").show("clip",{},'fast');
+	$( "#window" ).css("height", "400px").show("clip",{},'fast');
 	document.getElementById( 'window' ).innerHTML = '<iframe src="create.html" scrolling="yes" frameborder="0" width="900px" height="100%"><div height="100">YAAAAA</div></iframe>';
 	var temp = "yaa=chuya";
 	document.cookie = temp;
@@ -114,7 +114,7 @@ $( ".shelf_space" ).click(function(){
 	var new_window = '<div id="window"></div>';
 	$( "#topContent" ).before(new_window);
 	$( "#window" ).css("z-index", 100);
-	$( "#window" ).css("height", "330px").show("clip",{},'fast');
+	$( "#window" ).css("height", "400px").show("clip",{},'fast');
 	document.getElementById( 'window' ).innerHTML = '<iframe src="browse.html" scrolling="yes" frameborder="0" width="900px" height="100%"></iframe>';
 	/*document.cookie = $(this).attr('id');
 	var new_window = '<div id="window"></div>';
