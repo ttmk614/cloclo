@@ -1,0 +1,33 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link type="text/css" href="stylesheets/popups.css" rel="Stylesheet" />
+<link type="text/css" href="stylesheets/main.css" rel="Stylesheet" />
+<title>Untitled Document</title>
+</head>
+<body>
+
+<div id="browse" class="pop_up">
+	<div class="popupHeader"><span>●　格子</span><span class="rfloat close">×</span></div>
+	<div class="popupMain">
+		<ul class="list">
+			<% @user = User.find_by_account( cookies[:user] ) %>
+			<% @cloth = @user.cloths %>
+			<% @cloth.each do |clo| %>
+				<li class="hanger">
+		    		<div class="light lightAvailable">●</div>
+		    		<div class="clothPic"><img src="/public/uploads/<%= clo %>" />
+				</li>
+			<% end %>
+	       
+		</ul>
+	</div>
+</div>
+<script>
+	$(function() {
+		$( "#browse" ).slider();
+	});
+	</script>
+</body>
+</html>

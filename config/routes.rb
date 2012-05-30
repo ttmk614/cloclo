@@ -2,16 +2,17 @@ Cloclo::Application.routes.draw do
   get '/'       => 'home#index', :as => :home
   get '/login'   => 'home#login'
   get '/logout'  => 'home#logout'
-  get '/create.html'  => 'home#create'
+  get '/create.html'  => 'cloths#create'
   get '/friends'  => 'home#friends', :as => :friends
   get '/help'     => 'home#help'
   #for file upload
   post "cloths/new" => "cloths#upload"
-  post '/assets' => 'cloths#upload_file'
-  get '/created' => 'home#create_after'
+  post '/assets' => 'cloths#create_form'
+  get '/created' => 'cloths#create_after'
   #post "cloths/file" => "cloths#upload_file"
   #end
-  get '/create_form' => 'cloths#create_form'
+  #get 'create_form' => 'cloths#create_form'
+  
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
