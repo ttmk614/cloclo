@@ -14,7 +14,8 @@ class HomeController < ApplicationController
         #for first use
         else
           @user = User.create(:account => @me['id'],
-                              :friend => nil,)
+                              :friend => nil )
+          #need to initialize visible
         end
         cookies[:user] = @user.account
       end
@@ -37,10 +38,41 @@ class HomeController < ApplicationController
         @user = User.find_by_account( @me['id'] )
       end
 
+      if @user.read_attribute(:friend)
+        @prevList = @user.read_attribute(:friend)
+      else
+        @prevList = Array.new()
+      end
+
+      #respond_to do |format|
+      #format.html # editfriend.html.erb
+      #format.json { render json: params }
+      #end
   end
 
   def editfriend
+    #@access_token = rest_graph.access_token
+    #@me = rest_graph.get('/me')
+    user = cookies[:user]
 
+    #@user = User.find_by_account( @me['id'] )
+    @user = User.find_by_account( user )
+
+    #update self- friend list
+    @user.update_attribute(:friend, params[:editfriend] )
+    #update selected friends 
+
+
+    render :text => params[:editfriend]
+    #respond_to do |format|
+    #  if params
+    #    format.html { render :text => params}
+    #    format.json { render json: params }
+    #  else
+    #    format.html 
+      #  format.json { render json: @post.errors, status: :unprocessable_entity }
+    #  end
+    #end
   end
 
   def help

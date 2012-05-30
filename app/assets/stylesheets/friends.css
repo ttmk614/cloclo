@@ -7,6 +7,9 @@
 	border-radius: 10px;
 	border: 5px solid rgba(172,213,152,0.7);
 }
+#friends{
+	background: lightgreen;
+}
 .afriend{
 	border-top: 1px solid rgba(172,213,152,0.5);
 	padding: 5px 0;
@@ -30,4 +33,7 @@
 }
 .checked{
 	color: #718468;
+}
+input #checkable{
+	display: hidden;
 }
