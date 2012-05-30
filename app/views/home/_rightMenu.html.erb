@@ -1,6 +1,7 @@
 <div id="newpost">
-	<textarea name="postContent" placeholder="Wanna share your wonderful clothes?"></textarea>
-	<div id="sendPost">Send</div>
+	<textarea id="postContent" placeholder="Wanna share your wonderful clothes?"></textarea>
+	<div id="sendPost" class="<%= @me['id'] %>">Send</div>
+	
 </div>
 <div class="tabs_back" id="tabs">
 	<ul class="tabs">
@@ -11,11 +12,13 @@
 	<div class="tab_container">
 		<div id="tabs1" class="tab_content">
 		<% if !@user.posts.empty? %>
-		<% @user.posts.each do |post| %>
+		<div id="allPost">
+		<% lines = @user.posts.order("updated_at DESC") %>
+		<% lines.each do |post| %>
 			<div class="mutton">
-				<div class="aPost">
+				<div class="aPost" id="<%= User.find(post.read_attribute(:user_id)).read_attribute(:account) %>">
 					<img src="https://graph.facebook.com/me/picture?access_token=<%= @access_token %>" />
-					<%= @me['name'] %><br />
+					<a class="postName"><%= @me['name'] %></a><br />
 					<a class="postContent"><%= post[:content] %></a><br />
 					<a class="postTime"><%= post[:created_at] %></a>
 				</div>
@@ -27,6 +30,7 @@
 				<% end %>-->
 			</div>
 		<% end %>
+		</div>
 		<% end %>
 		</div>
 		</div>

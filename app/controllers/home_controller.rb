@@ -14,7 +14,8 @@ class HomeController < ApplicationController
         #for first use
         else
           @user = User.create(:account => @me['id'],
-                              :friend => nil,)
+                              :friend => nil )
+          #need to initialize visible
         end
         cookies[:user] = @user.account
       end
