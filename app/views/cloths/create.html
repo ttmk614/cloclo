@@ -14,7 +14,7 @@
         </div>
         
         <div class="input_attr">
-        	<%= form_tag({:action => :create_form}, :multipart => true, :class => "submit_form") do %>
+        	<%= form_tag({:controller => :cloths, :action => :create_form}, :multipart => true, :class => "submit_form") do %>
             	<span>照片</span>
                 檔案<%= file_field_tag 'upload_pic' %>＼照相＼連結<br />
         		<span>隱私</span>
