@@ -96,15 +96,10 @@ $(" #settings ").click(function(){
 	}*/
 });
 
-
-
-
-
-
 $( ".shelf_space" ).click(function(){
 	$.ajax({
 		url: "/cloths/browse_method",
-		data: { shelf: $(this).attr('id') },
+		data: { shelf: $(this).attr('id') }
 	});
 
 	var new_window = '<div id="window"></div>';
@@ -113,5 +108,36 @@ $( ".shelf_space" ).click(function(){
 	$( "#window" ).css("height", "400px").show("clip",{},'fast');
 	document.getElementById( 'window' ).innerHTML = '<iframe src="browse.html" scrolling="yes" frameborder="0" width="900px" height="100%"></iframe>';
 
+	
+});
+
+$( ".signal" ).click(function(){
+	var now;
+	var changeTo;
+	if(($(this).attr('class')).search("lightAvailable") != -1)
+	{
+		now = "lightAvailable";
+		changeTo = "lightNotAvailable";
+	}
+	else
+	{
+		now = "lightNotAvailable";
+		changeTo = "lightAvailable";
+	}
+	
+	$.ajax({
+		context: this,
+		url: "/cloths/switch",
+		data: { id: $(this).attr('title'), changeTo: changeTo },
+		success: function(data){
+		 	$(this).switchClass(now, changeTo);
+		 	//$(this).removeClass(now);
+		 	//$(this).addClass(changeTo, 1000);
+		 	console.log("yabi");
+		},
+		error: function(data){
+			console.log("QQ");
+		}
+	});
 	
 });

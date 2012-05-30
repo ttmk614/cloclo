@@ -44,7 +44,15 @@ def drop_method
   t = user.cloths.find(cookies[:temp].to_i)
   t[:private_class] = params[:shelf]
   t.save
-  render :text => params[:shelf]
+  render :text => "ok"
+end
+
+def switch
+  user = User.find_by_account(cookies[:user])
+  t = user.cloths.find(params[:id].to_i)
+  t[:signal] = params[:changeTo]
+  t.save
+  render :text => "ok"
 end
 
 private
