@@ -9,10 +9,10 @@ Cloclo::Application.routes.draw do
   post "cloths/new" => "cloths#upload"
   post '/assets' => 'cloths#create_form'
   get '/created' => 'cloths#create_after'
+  get '/browse.html' => 'cloths#browse'
   #post "cloths/file" => "cloths#upload_file"
   #end
-  #get 'create_form' => 'cloths#create_form'
-  
+  #Íget '/create_form' => 'cloths#create_form'
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
@@ -68,5 +68,5 @@ Cloclo::Application.routes.draw do
 
   # This is a legacy wild controller route that's not recommended for RESTful applications.
   # Note: This route will make all actions in every controller accessible via GET requests.
-  # match ':controller(/:action(/:id))(.:format)'
+  match ':controller(/:action(/:id))(.:format)'
 end

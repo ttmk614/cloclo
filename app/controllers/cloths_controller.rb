@@ -32,8 +32,9 @@ def upload
   render :text => "ok"
 end
 
-def browse
-  render :text => params
+def browse_method
+  cookies[:temp] = params[:shelf]
+  render :text => "ok"
 end
 
 private
