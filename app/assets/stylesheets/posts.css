@@ -61,7 +61,7 @@ textarea::-webkit-input-placeholder{
   opacity: .5;
 }
 #sendPost{
-
+	background: lightblue;
 }
 #right_menu #tabs{
 	background: none;

@@ -1,22 +1,30 @@
 <div id="newpost">
-	<textarea name="postContent" placeholder="Wanna share your wonderful cloth?"></textarea>
-	<button id="sendPost">Send</button>
+	<textarea name="postContent" placeholder="Wanna share your wonderful clothes?"></textarea>
+	<div id="sendPost">Send</div>
 </div>
 <div class="tabs_back" id="tabs">
 	<ul class="tabs">
-		<li><a href="#tabs1">New Posts</a></li>
-		<li><a href="#tabs2">My Posts</a></li>
+		<li><a href="#tabs1">My Posts</a></li>
+		<li><a href="#tabs2">All Posts</a></li>
 	</ul>
 
 	<div class="tab_container">
 		<div id="tabs1" class="tab_content">
 		<% if !@user.posts.empty? %>
 		<% @user.posts.each do |post| %>
-			<div class="aPost">
-				<img src="https://graph.facebook.com/me/picture?access_token=<%= @access_token %>" />
-				<%= @me['name'] %><br />
-				<a class="postContent"><%= post[:content] %></a><br />
-				<a class="postTime"><%= post[:created_at] %></a>
+			<div class="mutton">
+				<div class="aPost">
+					<img src="https://graph.facebook.com/me/picture?access_token=<%= @access_token %>" />
+					<%= @me['name'] %><br />
+					<a class="postContent"><%= post[:content] %></a><br />
+					<a class="postTime"><%= post[:created_at] %></a>
+				</div>
+				<!--<% post.comments.each do |comment| %>
+				<div class="aComment">
+					<img src="https://graph.facebook.com/<%= comment.read_attribute(:user_id) %>/picture">
+
+				</div>
+				<% end %>-->
 			</div>
 		<% end %>
 		<% end %>

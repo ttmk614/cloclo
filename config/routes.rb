@@ -1,11 +1,14 @@
 Cloclo::Application.routes.draw do
   get '/'       => 'home#index', :as => :home
-  get '/login'   => 'home#login'
-  get '/logout'  => 'home#logout'
-  get '/create.html'  => 'home#create'
-  get '/friends'  => 'home#friends', :as => :friends
-  get '/help'     => 'home#help'
+  get '/login'  => 'home#login'
+  get '/logout' => 'home#logout'
+  get '/create.html'=> 'home#create'
+  get '/friends'=> 'home#friends', :as => :friends
+  get '/editfriend' => 'home#editfriend'
+  get '/help'   => 'home#help'
   post "cloths/new" => "cloths#upload"
+  get '/post'   => 'post#new'
+
   # The priority is based upon order of creation:
   # first created -> highest priority.
 

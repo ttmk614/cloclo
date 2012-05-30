@@ -8,15 +8,24 @@
 	</div>
 
 	<div id="mainContainer" class="lfloat">
+		
 		<div class="friends">
+		<!--<form id="friends">--><!--<%= form_tag do%>-->
+		<span id="friends">Save Changes</span>
 		<% @friends['data'].each do |friend| %>
-			<div class="afriend">
+			<div class="afriend" >
+				<%= check_box_tag('checkable', 
+								   value = friend['id'], 
+								   checked = false ) %>
 				<img src="https://graph.facebook.com/<%= friend['id'] %>/picture" />
 				<%= friend['name'] %>
 				<div class="check rfloat">●</div>
 			</div>
 		<% end %>
+		
+		<!--<% end %></form>-->
 		</div>
+
 	</div>
 	<div id="right_menu" class="rfloat"><%= render "home/rightMenu" %></div>
 
@@ -25,4 +34,4 @@
 	<div id="footer"></div>
 </div>
 
-<%= javascript_include_tag "settings.js" %> 
+<%= javascript_include_tag "settings.js" %> <!--!@prevList[ friend['id'] ].nil?-->
