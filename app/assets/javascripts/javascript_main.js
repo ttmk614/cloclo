@@ -4,7 +4,7 @@ $(function() {
 		});
 });
 
-$( "#create, #search, .shelf_space" ).click(function() {
+$( "#create, #search, #remind, .shelf_space" ).click(function() {
 	var new_shadow = '<div id="shadow"></div>';
 	$( "#topContent" ).before(new_shadow);
 	$( "#shadow" ).css("height", $(document).height());  
@@ -53,9 +53,23 @@ $( "#create" ).click(function() {
 	$( "#topContent" ).before(new_window);
 	$( "#window" ).css("z-index", 100);
 	$( "#window" ).css("height", "400px").show("clip",{},'fast');
-	document.getElementById( 'window' ).innerHTML = '<iframe src="create.html" scrolling="yes" frameborder="0" width="900px" height="100%"><div height="100">YAAAAA</div></iframe>';
-	var temp = "yaa=chuya";
-	document.cookie = temp;
+	document.getElementById( 'window' ).innerHTML = '<iframe src="create.html" scrolling="yes" frameborder="0" width="900px" height="100%"></iframe>';
+});
+
+$( "#search" ).click(function() {
+	var new_window = '<div id="window"></div>';
+	$( "#topContent" ).before(new_window);
+	$( "#window" ).css("z-index", 100);
+	$( "#window" ).css("height", "400px").show("clip",{},'fast');
+	document.getElementById( 'window' ).innerHTML = '<iframe src="search.html" scrolling="yes" frameborder="0" width="900px" height="100%"></iframe>';
+});
+
+$(" #remind ").click(function(){
+	var new_window = '<div id="window"></div>';
+	$( "#topContent" ).before(new_window);
+	$( "#window" ).css("z-index", 100);
+	$( "#window" ).css("height", "400px").show("clip",{},'fast');
+	document.getElementById( 'window' ).innerHTML = '<iframe src="remind.html" scrolling="yes" frameborder="0" width="900px" height="100%"></iframe>';
 });
 
 /*$(  "td" ).mouseover(function() {
@@ -84,15 +98,15 @@ $( ".shelf_space" ).droppable({
 
 
 
-$(" #settings ").click(function(){
+/*$(" #settings ").click(function(){
 /*	var isResizable = $('.shelf_space').resizable('option', 'disabled');
     if(isResizable)*/
-		$( ".shelf_space" ).resizable({ grid: 50 });
+//		$( ".shelf_space" ).resizable({ grid: 50 });
 	/*}
 	else{
 		$( ".shelf_space" ).resizable({ disabled: true });
 	}*/
-});
+//});
 
 $( ".shelf_space" ).click(function(){
 	$.ajax({

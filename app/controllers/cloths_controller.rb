@@ -55,6 +55,25 @@ def switch
   render :text => "ok"
 end
 
+def search_form
+  @user = User.find_by_account(cookies[:user].to_s)
+  @new = @user.cloths.where("public_class = ?", params[:choose_type])
+  #t = user.cloths.create(:public_class   => params[:choose_type],
+  #                       :color          => params[:choose_color].to_json, 
+ #                        :description    => params[:description], 
+  #                       :privacy        => params[:choose_privacy],)
+  #params[:result] = @result
+  i = 0
+  @new.each do |r|
+    if r['color'].include? params[:choose_color]
+      @result[i] = r
+      i = i + 1
+    end
+  end
+  params[:result] = @result
+  render :template => '/cloths/search_after.html.erb', :result => params[:result] 
+end
+
 private
   def create
   #@cloth = Cloth.new()  
