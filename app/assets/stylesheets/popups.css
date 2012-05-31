@@ -109,12 +109,44 @@
 	background-color: #D3D3D3;
 	margin: 10px;	
 	height: 250px;
+	width: 320px;
 	text-shadow: 1px 1px rgba(0,0,0,0.3);
-
+	text-align: center;
+	/*font-size: 200px;*/
 }
 .clothPic img{
 	width: 200px;
 }
+.if_empty{
+	color: #878383;
+	margin-top: 100px;
+}
+.plain_text{
+	color: #878383;
+	/*margin-top: 30px;*/
+	text-shadow: none;
+}
+#des_area {
+  border-radius: 3px;
+  width: 350px;
+  height: 50px;
+  font-size: 8px;
+  padding: 20px;
+  color: gray;
+  background: #DFEFFC;
+  box-shadow: inset 0 1px 1px rgba(0,0,0,.4);
+}
+#des_area:focus{
+  /* Cancel the orange outline when in focus */
+  outline: none;
+}
+#des_area::-webkit-input-placeholder{
+  /* Style the textarea placeholder for webkit browsers */
+  color: gray;
+  text-shadow: none;
+  opacity: .5;
+}
+
 /* ----------------------------------------------------*/
 .choose_light form{
 	height: 30px;

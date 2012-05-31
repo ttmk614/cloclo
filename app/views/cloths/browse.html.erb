@@ -14,10 +14,16 @@
 		<ul class="list">
 			<% @user = User.find_by_account( cookies[:user] ) %>
 			<% @cloth = @user.cloths.where(:private_class => cookies[:temp]) %>
+			<% if @cloth.empty? %>
+			<div class="if_empty">【這個衣櫃格子是空的】</div>
+			<% end %>
 			<% @cloth.each do |clo| %>
 				<li class="hanger">
+					
 		    		<div class="<%=clo['signal']%>">●</div>
-		    		<div class="clothPic"><img src="/uploads/<%= clo['image'] %>" />
+		    		<div class="clothPic"><img src="/uploads/<%= clo['image'] %>" /><br/>
+		    		<div class="plain_text"><%= clo['description'] %></div>
+		    	
 				</li>
 			<% end %>
 	       
