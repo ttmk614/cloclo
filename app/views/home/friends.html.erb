@@ -22,7 +22,7 @@
 					<% select = "checked" %>
 					<% end %>
 				<% else %>
-					<%= check_box_tag('checkable', value = friend['id']) %>
+					<%= check_box_tag('checkable', value = friend['id']), checked = false %>
 					<% select = "check" %>
 				<% end %>
 				
