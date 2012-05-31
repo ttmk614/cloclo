@@ -4,6 +4,8 @@ Cloclo::Application.routes.draw do
   get '/logout'  => 'home#logout'
   get '/create.html'  => 'cloths#create'
   get '/friends'  => 'home#friends', :as => :friends
+  get '/editfriend' => 'home#editfriend'
+  get '/post/new'   => 'post#new'
   get '/help'     => 'home#help'
   #for file upload
   post "cloths/new" => "cloths#upload"

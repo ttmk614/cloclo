@@ -19,11 +19,11 @@
 			<% end %>
 			<% @cloth.each do |clo| %>
 				<li class="hanger">
-					
-		    		<div class="<%=clo['signal']%>">●</div>
+
+		    		<div class="<%=clo['signal']%> signal" title="<%=clo['id']%>">●</div>
 		    		<div class="clothPic"><img src="/uploads/<%= clo['image'] %>" /><br/>
 		    		<div class="plain_text"><%= clo['description'] %></div>
-		    	
+
 				</li>
 			<% end %>
 	       
