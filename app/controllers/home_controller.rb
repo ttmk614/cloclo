@@ -64,7 +64,7 @@ class HomeController < ApplicationController
     params[:editfriend].each do |friend|
       u = User.find_by_account(friend)
       if u
-        friendfriend = u.read_attribute(:friend)
+        friendfriend = u.read_attribute(:friend).to_a
         place = friendfriend.index( cookies['user'] )
         if place < 0
           newfriendfriend = friendfriend.push( cookies['user'] )
