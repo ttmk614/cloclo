@@ -14,13 +14,15 @@
 		<span id="friends">Save Changes</span>
 		<% @friends['data'].each do |friend| %>
 			<div class="afriend" >
-				<% if User.find_by_account(@me['id']).read_attribute('friend').index(friend['id']) %>
+				<% if User.find_by_account(@me['id']).read_attribute('friend') %>
+					<% if User.find_by_account(@me['id']).read_attribute('friend').include?(friend['id']) %>
 					<%= check_box_tag('checkable', 
 								   value = friend['id'], 
 								   checked = "checked" ) %>
 					<% select = "checked" %>
+					<% end %>
 				<% else %>
-					<%= check_box_tag('checkable', value = friend['id']) %>
+					<%= check_box_tag('checkable', value = friend['id']), checked = false %>
 					<% select = "check" %>
 				<% end %>
 				
