@@ -74,8 +74,6 @@ class HomeController < ApplicationController
     #  end
 
 
-    end
-
     render :text => params[:editfriend]
     #respond_to do |format|
     #  if params
