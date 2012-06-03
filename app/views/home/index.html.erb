@@ -2,8 +2,9 @@
 
 	<%= render "home/top" %>
 
-	<div id="content">
+	
 	<% if @access_token %>
+	<div id="content">
 	<div id="left_menu" class="lfloat">
 		<%= render "home/leftMenu" %>    
 	</div>
@@ -21,8 +22,10 @@
 		</div>
 	</div>
 	<div id="right_menu" class="rfloat"><%= render "home/rightMenu" %></div>
-
-	<% end %>
 	</div>
+	<% else %>
+	<%= render "home/blank" %>
+	<% end %>
+	
 	<div id="footer"></div>
 </div>
