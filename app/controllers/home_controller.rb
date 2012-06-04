@@ -71,10 +71,7 @@ class HomeController < ApplicationController
     #      u.update_attribute(:friend, newfriendfriend)
     #    end
 
-    #  end
-
-
-  #end
+    #end
 
     render :text => params[:editfriend]
     #respond_to do |format|

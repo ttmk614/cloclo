@@ -1,21 +1,9 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
-<head>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<link type="text/css" href="stylesheets/popups.css" rel="Stylesheet" />
-<link type="text/css" href="stylesheets/main.css" rel="Stylesheet" />
-<title>Untitled Document</title>
-</head>
-<body>
-
 <div id="browse" class="pop_up">
 	<div class="popupHeader"><span>＞　搜尋結果</span><span class="rfloat" id="close">×</span></div>
 	<div class="popupMain">
 		<span class="rfloat"><%= link_to '回上頁', '/search.html' %></span>
 		<ul class="list">
-
-			<% @user = User.find_by_account( cookies[:user] ) %>
-			<% @cloth = params[:result] %>
+			<% @cloth = @result %>
 			<% if @cloth.empty? %>
 			<div class="if_empty">【找不到相符的資料】</div>
 			<% else %>
@@ -35,6 +23,4 @@
 	$(function() {
 		$( "#browse" ).slider();
 	});
-	</script>
-</body>
-</html>
+</script>

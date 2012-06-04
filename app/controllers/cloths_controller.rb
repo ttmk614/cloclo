@@ -11,11 +11,19 @@ def create_form
     cookies[:path] = file_name
   end
 
+  if params[:choose_privacy] != nil
+    if params[:choose_privacy] == "public"
+      pri = false
+    else
+      pri = true
+    end
+  end
+
   user = User.find_by_account(cookies[:user].to_s)
   t = user.cloths.create(:public_class   => params[:choose_type],
                          :color          => params[:choose_color].to_json, 
                          :description    => params[:description], 
-                         :privacy        => params[:choose_privacy],
+                         :privacy        => pri,
                          :image          => cookies[:path], 
                          :signal         => "lightAvailable")#, :redRemark, :redTime, :signal
   cookies[:temp] = t[:id]
@@ -56,22 +64,40 @@ def switch
 end
 
 def search_form
-  @user = User.find_by_account(cookies[:user].to_s)
-  @new = @user.cloths.where("public_class = ?", params[:choose_type])
-  #t = user.cloths.create(:public_class   => params[:choose_type],
-  #                       :color          => params[:choose_color].to_json, 
- #                        :description    => params[:description], 
-  #                       :privacy        => params[:choose_privacy],)
-  #params[:result] = @result
-  i = 0
-  @new.each do |r|
-    if r['color'].include? params[:choose_color]
-      @result[i] = r
-      i = i + 1
+  user = User.find_by_account(cookies[:user].to_s)
+  if params[:choose_privacy] != nil
+    if params[:choose_privacy] == "public"
+      pri = false
+    else
+      pri = true
     end
   end
-  params[:result] = @result
-  render :template => '/cloths/search_after.html.erb', :result => params[:result] 
+
+  if params[:choose_privacy] != nil && params[:choose_type] != nil #若user想要找特定權限、公開分類的衣服
+    @new = user.cloths.where(:privacy => pri, :public_class => params[:choose_type])
+  elsif params[:choose_privacy] != nil && params[:choose_type] == nil
+    @new = user.cloths.where(:privacy => pri)
+  elsif params[:choose_privacy] == nil && params[:choose_type] != nil 
+    @new = user.cloths.where(:public_class   => params[:choose_type])
+  else #params[:choose_privacy] == nil && params[:choose_type] == nil 
+    @new = user.cloths.all
+  end
+
+  if params[:choose_color] != nil
+    i = 0
+    @result = []
+    @new.each do |r|
+      if r['color'].include? params[:choose_color]
+        @result[i] = r
+        i = i + 1
+      end
+      
+    end
+  else
+    @result = @new
+  end
+  #params[:result] = @result
+  render :template => '/cloths/search_after.html.erb'#, :result => params[:result]
 end
 
 private
