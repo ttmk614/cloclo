@@ -151,3 +151,6 @@
 .choose_light form{
 	height: 30px;
 }
+#remark{
+	display: inline;
+}

@@ -47,6 +47,12 @@ def browse_method
   render :text => "ok"
 end
 
+=begin
+def red_remark
+  $(this).attr('title')
+end
+=end
+
 def drop_method
   user = User.find_by_account(cookies[:user])
   t = user.cloths.find(cookies[:temp].to_i)
@@ -61,6 +67,16 @@ def switch
   t[:signal] = params[:changeTo]
   t.save
   render :text => "ok"
+end
+
+def red_mark
+  user = User.find_by_account(cookies[:user])
+  t = user.cloths.find(params[:id].to_i)
+  t[:redRemark] = params[:content]
+  #t[:redTime] = Time.now.to_i.to_s
+  t.save
+  render :text => params[:content]
+  
 end
 
 def search_form
@@ -99,6 +115,9 @@ def search_form
   #params[:result] = @result
   render :template => '/cloths/search_after.html.erb'#, :result => params[:result]
 end
+
+
+
 
 private
   def create

@@ -122,14 +122,108 @@ $( ".shelf_space" ).click(function(){
 
 	
 });
+/*
+$( ".lightAvailable" ).click(funciton(){
+	$.ajax({
+		context: this,
+		url: "/cloths/switch",
+		data: { id: $(this).attr('title'), changeTo: "lightNotAvailable" },
+		success: function(data){
+		 	$(this).switchClass("lightAvailable", "lightNotAvailable", 0);
+		 	console.log("yabi");
+		},
+		error: function(data){
+			console.log("QQ");
+		}
+	});
 
+});
+
+$( ".lightNotAvailable" ).click(funciton(){
+	$.ajax({
+		context: this,
+		url: "/cloths/switch",
+		data: { id: $(this).attr('title'), changeTo: "lightAvailable" },
+		success: function(data){
+		 	$(this).switchClass("lightNotAvailable", "lightAvailable", 0);
+		 	console.log("yabi");
+		},
+		error: function(data){
+			console.log("QQ");
+		}
+	});
+});*/
 $( ".signal" ).click(function(){
+	var id = $(this).attr('title');
+	if(($(this).attr('class')).search("lightAvailable") != -1)
+	{
+		temp = '<span id="text"><textarea id="remark" name="description" width="400px"></textarea><button id="red_submit" title="'+id+' type="button" >送出資料</button></span>';
+		$.ajax({
+			context: this,
+			url: "/cloths/switch",
+			data: { id: id, changeTo: "lightNotAvailable" },
+			success: function(data){
+			 	$(this).switchClass("lightAvailable", "lightNotAvailable", 0);
+			 	console.log("yabi");
+			},
+			error: function(data){
+				console.log("QQ");
+			}
+		});
+
+		$("#text").remove();
+		$( this ).parent().append(temp);
+
+		$( "#red_submit" ).click(function(){
+			$.ajax({
+				context: this,
+				url: "/cloths/red_mark",
+				data: { id: $(this).attr('title'), content: document.getElementById('remark').value },
+				success: function(data){
+				 	console.log(data);
+				 	$("#text").remove();
+				},
+				error: function(data){
+					console.log("QQ");
+				}
+			});
+		});
+	}
+	else
+	{
+		$("#text").remove();
+		$.ajax({
+			context: this,
+			url: "/cloths/switch",
+			data: { id: id, changeTo: "lightAvailable" },
+			success: function(data){
+			 	$(this).switchClass("lightNotAvailable", "lightAvailable", 0);
+			 	console.log("yabi");
+			},
+			error: function(data){
+				console.log("QQ");
+			}
+		});
+	} 
+	
+});
+
+
+/*
+$( ".signal" ).click(function(){
+	var id = $(this).attr('title');
 	var now;
 	var changeTo;
 	if(($(this).attr('class')).search("lightAvailable") != -1)
 	{
 		now = "lightAvailable";
 		changeTo = "lightNotAvailable";
+
+		$("textarea").remove();
+		$( this ).parent().last().after('<textarea id="remark" name="description" width="400px"></textarea>');
+		//var jtext = document.getElementById('idTextArea').value;
+
+		//console.log($("#remark").text());
 	}
 	else
 	{
@@ -140,9 +234,9 @@ $( ".signal" ).click(function(){
 	$.ajax({
 		context: this,
 		url: "/cloths/switch",
-		data: { id: $(this).attr('title'), changeTo: changeTo },
+		data: { id: id, changeTo: changeTo },
 		success: function(data){
-		 	$(this).switchClass(now, changeTo);
+		 	$(this).switchClass(now, changeTo, 0);
 		 	//$(this).removeClass(now);
 		 	//$(this).addClass(changeTo, 1000);
 		 	console.log("yabi");
@@ -152,4 +246,4 @@ $( ".signal" ).click(function(){
 		}
 	});
 	
-});
+});*/
