@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120530172546) do
+ActiveRecord::Schema.define(:version => 20120605064258) do
 
   create_table "cloths", :force => true do |t|
     t.integer  "user_id"
@@ -28,8 +28,16 @@ ActiveRecord::Schema.define(:version => 20120530172546) do
     t.string   "signal"
   end
 
+  create_table "colors", :force => true do |t|
+    t.string   "color"
+    t.integer  "cloth_id"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
   create_table "comments", :force => true do |t|
     t.text     "content"
+    t.integer  "post_id"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
     t.integer  "user_id"
