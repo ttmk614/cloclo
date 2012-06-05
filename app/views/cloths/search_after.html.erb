@@ -9,7 +9,8 @@
 			<% else %>
 			<% @cloth.each do |clo| %>
 				<li class="hanger">
-		    		<div class="<%=clo['signal']%> signal" title="<%=clo['id']%>">●</div>
+
+					<div class="<%=clo['signal']%> signal" title="<%=clo['id']%>">●</div>
 		    		<div class="clothPic"><img src="/uploads/<%= clo['image'] %>" /><br/>
 		    		<ul>
 		    		<li class="plain_text"><div class="plain_text_bold">分類：</div><%= clo['public_class'] %></li>
