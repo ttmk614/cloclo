@@ -12,8 +12,24 @@
 
 		    		<div class="<%=clo['signal']%> signal" title="<%=clo['id']%>">●</div>
 		    		<div class="clothPic"><img src="/uploads/<%= clo['image'] %>" /><br/>
-		    		<div class="plain_text"><%= clo['description'] %></div>
+		    		<ul>
+		    		<li class="plain_text"><div class="plain_text_bold">分類：</div><%= clo['public_class'] %></li>
+		    		<li class="plain_text"><div class="plain_text_bold">顏色：</div>
+		    			<% @color = clo.colors %>
+		    			<% @color.each do |c| %>
+		    			<font color="<%= c['color'] %>">■</font>
+		    			<% end %></li>
+		    		<li class="plain_text"><div class="plain_text_bold">衣櫃：</div><%= clo['private_class'] %></li>
+		    		<li class="plain_text"><div class="plain_text_bold">隱私：</div>
+		    			<% if clo['privacy'] == true %>
+		    			<%='公開' %>
+		    			<% else %>
+		    			<%='非公開' %>
+		    			<% end %></li>
+		    		<li class="plain_text"><div class="plain_text_bold">補充：</div><%= clo['description'] %></li>
+		    		<%= link_to '刪除', {:controller => "cloth", :action => "delete", :id => clo.id }, :class => :plain_text_link, confirm: '您確定要刪除？' %>
 
+		    		</ul>
 				</li>
 			<% end %>
 	       

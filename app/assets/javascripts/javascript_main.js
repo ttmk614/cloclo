@@ -208,42 +208,7 @@ $( ".signal" ).click(function(){
 	
 });
 
-
-/*
-$( ".signal" ).click(function(){
-	var id = $(this).attr('title');
-	var now;
-	var changeTo;
-	if(($(this).attr('class')).search("lightAvailable") != -1)
-	{
-		now = "lightAvailable";
-		changeTo = "lightNotAvailable";
-
-		$("textarea").remove();
-		$( this ).parent().last().after('<textarea id="remark" name="description" width="400px"></textarea>');
-		//var jtext = document.getElementById('idTextArea').value;
-
-		//console.log($("#remark").text());
-	}
-	else
-	{
-		now = "lightNotAvailable";
-		changeTo = "lightAvailable";
-	}
-	
-	$.ajax({
-		context: this,
-		url: "/cloths/switch",
-		data: { id: id, changeTo: changeTo },
-		success: function(data){
-		 	$(this).switchClass(now, changeTo, 0);
-		 	//$(this).removeClass(now);
-		 	//$(this).addClass(changeTo, 1000);
-		 	console.log("yabi");
-		},
-		error: function(data){
-			console.log("QQ");
-		}
-	});
-	
-});*/
+window.onload = function() {
+   document.getElementById("siteLoader").style.display = "block";
+   document.getElementById("container").style.display = "block";
+}

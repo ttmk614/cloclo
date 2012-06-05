@@ -20,12 +20,18 @@ def create_form
   end
 
   user = User.find_by_account(cookies[:user].to_s)
-  t = user.cloths.create(:public_class   => params[:choose_type],
-                         :color          => params[:choose_color].to_json, 
+  t = user.cloths.create(:public_class   => params[:choose_type], 
                          :description    => params[:description], 
                          :privacy        => pri,
                          :image          => cookies[:path], 
+                         :color          => params[:choose_color].to_json,
                          :signal         => "lightAvailable")#, :redRemark, :redTime, :signal
+  
+  params[:choose_color].each do |i|
+    c = t.colors.create(:cloth_id   => t[:id],
+                        :color      => i)
+  end
+  
   cookies[:temp] = t[:id]
   redirect_to "/created"
 end
@@ -116,8 +122,19 @@ def search_form
   render :template => '/cloths/search_after.html.erb'#, :result => params[:result]
 end
 
+def delete
+  @cloth_d = Cloth.find(params[:id])
+  file_name = @cloth_d.image
+  delete_path = File.join(Rails.root, 'public', 'uploads', file_name)
 
+  #if file_name exists and file exists
+  if File.file?(delete_path)
+    File.delete(delete_path) 
+  end
+  @cloth_d.destroy
 
+  redirect_to '/browse.html'
+end
 
 private
   def create

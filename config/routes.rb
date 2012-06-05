@@ -15,6 +15,8 @@ Cloclo::Application.routes.draw do
   get '/search.html' => 'cloths#search'
   get '/searched' => 'cloths#search_after'
   get 'remind.html' => 'cloths#remind'
+  match "/cloth/delete/:id" => "cloths#delete"
+
   #post "cloths/file" => "cloths#upload_file"
   #end
   #Íget '/create_form' => 'cloths#create_form'

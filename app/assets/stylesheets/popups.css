@@ -20,7 +20,7 @@
 }
 #close{
 	/*margin: 100px 100px;*/
-	cursor: default;
+	cursor: pointer;
 }
 .popupMain{
 	height: 380px;
@@ -68,6 +68,7 @@
 	border: 1px;
 	background: #F29C9F;
 	border-radius: 5px;
+	cursor: pointer;
 }
 .submit_all:hover{
   border-top: 1px solid #fff;
@@ -88,7 +89,7 @@
 	height: 380px;
 	width: auto;
 	overflow-x: scroll;
-	overflow-y: hidden;
+	overflow-y: scroll;
 	text-align: center;
 	white-space: nowrap;
 }
@@ -125,6 +126,21 @@
 	color: #878383;
 	/*margin-top: 30px;*/
 	text-shadow: none;
+	text-align: left;
+	margin-left: 30px;
+}
+.plain_text_bold{
+	color: #878383;
+	/*margin-top: 30px;*/
+	text-shadow: none;
+	text-align: left;
+	font-weight: bold;
+	display: inline-block;
+}
+.plain_text_link{
+	color: #3B6687;
+	text-shadow: none;
+
 }
 #des_area {
   border-radius: 3px;
@@ -151,6 +167,7 @@
 .choose_light form{
 	height: 30px;
 }
-#remark{
-	display: inline;
+
+.signal{
+	cursor: pointer;
 }
