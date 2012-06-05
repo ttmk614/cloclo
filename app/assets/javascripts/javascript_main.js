@@ -153,3 +153,8 @@ $( ".signal" ).click(function(){
 	});
 	
 });
+
+window.onload = function() {
+   document.getElementById("siteLoader").style.display = "block";
+   document.getElementById("container").style.display = "block";
+}

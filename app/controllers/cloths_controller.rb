@@ -74,6 +74,20 @@ def search_form
   render :template => '/cloths/search_after.html.erb', :result => params[:result] 
 end
 
+def delete
+  @cloth_d = Cloth.find(params[:id])
+  file_name = @cloth_d.image
+  delete_path = File.join(Rails.root, 'public', 'uploads', file_name)
+
+  #if file_name exists and file exists
+  if File.file?(delete_path)
+    File.delete(delete_path) 
+  end
+  @cloth_d.destroy
+
+  redirect_to '/browse.html'
+end
+
 private
   def create
   #@cloth = Cloth.new()  

@@ -88,7 +88,7 @@
 	height: 380px;
 	width: auto;
 	overflow-x: scroll;
-	overflow-y: hidden;
+	overflow-y: scroll;
 	text-align: center;
 	white-space: nowrap;
 }
@@ -125,6 +125,21 @@
 	color: #878383;
 	/*margin-top: 30px;*/
 	text-shadow: none;
+	text-align: left;
+	margin-left: 30px;
+}
+.plain_text_bold{
+	color: #878383;
+	/*margin-top: 30px;*/
+	text-shadow: none;
+	text-align: left;
+	font-weight: bold;
+	display: inline-block;
+}
+.plain_text_link{
+	color: #3B6687;
+	text-shadow: none;
+
 }
 #des_area {
   border-radius: 3px;
