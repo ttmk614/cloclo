@@ -20,7 +20,7 @@
 }
 #close{
 	/*margin: 100px 100px;*/
-	cursor: default;
+	cursor: pointer;
 }
 .popupMain{
 	height: 380px;
@@ -68,6 +68,7 @@
 	border: 1px;
 	background: #F29C9F;
 	border-radius: 5px;
+	cursor: pointer;
 }
 .submit_all:hover{
   border-top: 1px solid #fff;
@@ -165,4 +166,7 @@
 /* ----------------------------------------------------*/
 .choose_light form{
 	height: 30px;
+}
+.signal{
+	cursor: pointer;
 }

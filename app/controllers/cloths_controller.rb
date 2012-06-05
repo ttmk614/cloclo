@@ -20,12 +20,17 @@ def create_form
   end
 
   user = User.find_by_account(cookies[:user].to_s)
-  t = user.cloths.create(:public_class   => params[:choose_type],
-                         :color          => params[:choose_color].to_json, 
+  t = user.cloths.create(:public_class   => params[:choose_type], 
                          :description    => params[:description], 
                          :privacy        => pri,
                          :image          => cookies[:path], 
                          :signal         => "lightAvailable")#, :redRemark, :redTime, :signal
+  
+  params[:choose_color].each do |i|
+    c = t.colors.create(:cloth_id   => t[:id],
+                        :color      => i)
+  end
+  
   cookies[:temp] = t[:id]
   redirect_to "/created"
 end
