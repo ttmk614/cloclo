@@ -62,6 +62,7 @@
 }
 #sendPost{
 	background: lightblue;
+	cursor: pointer;
 }
 #right_menu #tabs{
 	background: none;

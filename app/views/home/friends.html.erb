@@ -1,8 +1,9 @@
 <div id="globalContainer">
 	<%= render "home/top" %>
 
-	<div id="content">
+	
 	<% if @access_token %>
+	<div id="content">
 	<div id="left_menu" class="lfloat">
 		<%= render "home/leftMenu" %>    
 	</div>
@@ -18,11 +19,14 @@
 					<% if User.find_by_account(@me['id']).read_attribute('friend').include?(friend['id']) %>
 					<%= check_box_tag('checkable', 
 								   value = friend['id'], 
-								   checked = "checked" ) %>
+								   checked = true ) %>
 					<% select = "checked" %>
+					<% else %>
+					<%= check_box_tag('checkable', value = friend['id'], checked = false ) %>
+					<% select = "check" %>
 					<% end %>
 				<% else %>
-					<%= check_box_tag('checkable', value = friend['id']), checked = false %>
+					<%= check_box_tag('checkable', value = friend['id'], checked = false ) %>
 					<% select = "check" %>
 				<% end %>
 				
@@ -37,9 +41,12 @@
 
 	</div>
 	<div id="right_menu" class="rfloat"><%= render "home/rightMenu" %></div>
+	</div>
+	<% else %>
+		<%= redirect_to "/" %>
 
 	<% end %>
-	</div>
+	
 	<div id="footer"></div>
 </div>
 

@@ -62,6 +62,11 @@ $("#sendPost").click(function() {
 		}
 	}).done(function(){
 			console.log("complete!");
+			$('#postContent').val("");
 	});
 	/* Post(id: integer, name: string, content: text, created_at: datetime, updated_at: datetime, user_id: integer) */
+});
+
+$("#logo").click( function(){
+	$.get('/');
 });

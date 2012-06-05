@@ -93,6 +93,22 @@ table{
 	background: url(sis_cloclo.gif) no-repeat;
 	/*background-position-x: 125px;*/
 	background-size: 125px 35px;
+	cursor: pointer;
+}
+#firstPage{
+	width: 500px;
+	margin: 0 auto;
+	color: darkgreen;
+}
+#titleLogo{
+	width: 500px;
+	background: url(sis_cloclo.gif) no-repeat;
+	background-size: 500px;
+	margin: 100px auto 0 auto;
+	height: 200px;
+}
+#facebookf{
+	width: 50px;
 }
 #topFunctions{
 	position: relative;
@@ -177,6 +193,7 @@ ul#closetFunction li{
 	font-weight: bold;
 	color: #FFFFFF;
 	text-shadow: 0 -1px rgba(0,0,0,.7);
+	cursor: pointer;
 }
 /* 還要改 */
 ul#closetFunction li:hover{
