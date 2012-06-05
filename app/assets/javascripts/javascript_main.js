@@ -111,15 +111,17 @@ $( ".shelf_space" ).droppable({
 $( ".shelf_space" ).click(function(){
 	$.ajax({
 		url: "/cloths/browse_method",
-		data: { shelf: $(this).attr('id') }
+		data: { shelf: $(this).attr('id') },
+		success: function(data){
+		 	var new_window = '<div id="window"></div>';
+			$( "#topContent" ).before(new_window);
+			$( "#window" ).css("z-index", 100);
+			$( "#window" ).css("height", "400px").show("clip",{},'fast');
+			document.getElementById( 'window' ).innerHTML = '<iframe src="browse.html" scrolling="yes" frameborder="0" width="900px" height="100%"></iframe>';
+		 	console.log("yabi");
+		}
+
 	});
-
-	var new_window = '<div id="window"></div>';
-	$( "#topContent" ).before(new_window);
-	$( "#window" ).css("z-index", 100);
-	$( "#window" ).css("height", "400px").show("clip",{},'fast');
-	document.getElementById( 'window' ).innerHTML = '<iframe src="browse.html" scrolling="yes" frameborder="0" width="900px" height="100%"></iframe>';
-
 	
 });
 /*
