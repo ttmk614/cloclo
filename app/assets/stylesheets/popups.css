@@ -1,7 +1,7 @@
 @charset "UTF-8";
 .pop_up{
 	width: 900px;
-	height: 400px;
+	height: 500px;
 	left: 250px;
 
 }
@@ -23,7 +23,7 @@
 	cursor: pointer;
 }
 .popupMain{
-	height: 380px;
+	height: 480px;
 	width: 100%;
 	background-color: #F7E4E5;
 	overflow: hidden;
@@ -86,7 +86,7 @@
 	display: inline-block;
 }
 .list{
-	height: 380px;
+	height: 480px;
 	width: auto;
 	overflow-x: scroll;
 	overflow-y: scroll;

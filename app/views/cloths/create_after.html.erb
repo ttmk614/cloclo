@@ -1,9 +1,17 @@
+<html>
+<body style="background-color: #F7E4E5;">
+<div id="shadow">
 <script>
+	parent.document.getElementById("reminder").innerHTML = '<img src="uploads/<%= cookies[:path] %>" id="new_cloth">';
+
+	alert("請將衣服拖曳至衣櫃中！");
+
 	var sha = parent.document.getElementById("shadow");
 	sha.parentNode.removeChild(sha);
 
-	parent.document.getElementById("reminder").innerHTML = '<img src="uploads/<%= cookies[:path] %>" id="new_cloth">';
-
 	var win = parent.document.getElementById("window");
-	win.parentNode.removeChild(win);
+	win.parentNode.removeChild(win);	
 </script>
+</div>
+</body>
+</html>
