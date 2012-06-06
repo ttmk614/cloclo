@@ -37,6 +37,17 @@ table{
 	vertical-align: middle;
 }
 .rfloat{ float:right; } .lfloat{ float:left;  }
+
+#login_f{
+	color: #FFF;
+	font-size: 26px;
+	text-shadow: 1px 1px rgba(0,0,0,.5);
+	text-align: center;
+	background: #ACD598;
+	border-radius: 7px;
+	padding: 10px 0;
+}
+
 #window {
 	display: none;
 	overflow: hidden;
@@ -104,11 +115,18 @@ table{
 	width: 500px;
 	background: url(sis_cloclo.gif) no-repeat;
 	background-size: 500px;
-	margin: 100px auto 0 auto;
-	height: 200px;
+	background-position: center;
+	margin: 100px auto 30px auto;
+	height: 150px;
+
+	border: 3px dashed #CB9821;
+	border-radius: 15px;
 }
 #facebookf{
 	width: 50px;
+}
+#login_f{
+	cursor: pointer;
 }
 #topFunctions{
 	position: relative;
@@ -221,3 +239,29 @@ ul#closetFunction li:nth-child(3n+3) {
 	background: #9BBBE5;
 }
 
+.description{
+	color: green;
+	width: 500px;
+	text-align: left;
+	background: #F4FBD7;
+	padding: 20px;
+	border-color: #F4FBD7;
+	border-radius: 10px;
+}
+
+.description_bold{
+	color: white;
+	width: 500px;
+	text-align: left;
+	font-weight: bold;
+	border-radius: 7px;
+	background: #5C8737;
+}
+
+.description_title{
+	color: green;
+	width: 500px;
+	text-align: left;
+	font-weight: bold;
+	font-size: 20px;
+}

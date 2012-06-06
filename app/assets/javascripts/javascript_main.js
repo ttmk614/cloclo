@@ -1,4 +1,12 @@
 // JavaScript Document
+$( "#logo" ).click(function(){
+	window.location = "/";
+});
+
+$( "#login_f" ).click(function(){
+	window.location = "/login";
+});
+
 $(function() {
 		$( "#tabs" ).tabs({
 		});
