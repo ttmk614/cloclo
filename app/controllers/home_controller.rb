@@ -1,3 +1,5 @@
+#encoding: UTF-8
+
 class HomeController < ApplicationController
 	include RestGraph::RailsUtil
 	before_filter :login_facebook, :only => [:login]
@@ -14,7 +16,14 @@ class HomeController < ApplicationController
         #for first use
         else
           @user = User.create(:account => @me['id'],
-                              :friend => nil )
+                              :friend => nil, 
+                              :sh1 => "大衣",
+                              :sh2 => "短袖上衣",
+                              :sh3 => "長袖上衣",
+                              :sh4 => "短褲",
+                              :sh5 => "長褲",
+                              :sh6 => "鞋子",
+                              :sh7 => "飾品" )
           #need to initialize visible
         end
         cookies[:user] = @user.account
@@ -89,6 +98,15 @@ class HomeController < ApplicationController
     redirect_to home_path
   end
 
+  def shelf_set
+    user = User.find_by_account(cookies[:user])
+    #t = user.cloths.find(cookies[:temp].to_i)
+    if params[:content]!="null"
+      user["sh"+params["id"]] = params[:content].to_s
+      user.save
+    end
+    render :text => "ok"
+  end
 
 private
   def load_facebook

@@ -4,7 +4,7 @@ $(function() {
 		});
 });
 
-$( "#create, #search, #remind, .shelf_space" ).click(function() {
+$( "#create, #search, #remind, .shelf_browse" ).live("click",function() {
 	var new_shadow = '<div id="shadow"></div>';
 	$( "#topContent" ).before(new_shadow);
 	$( "#shadow" ).css("height", $(document).height());  
@@ -18,6 +18,44 @@ $( "#create, #search, #remind, .shelf_space" ).click(function() {
 	win.parentNode.removeChild(win);
 	});
 });
+
+var count = 0;
+$( "#set" ).click(function(){
+	if (count == 0){
+		$( '.shelf_space' ).switchClass("shelf_browse", "shelf_set", 0);
+	//$( this ).
+		$( "#set" ).text("　＝　Done");
+		count = 1;
+	}
+	else {
+		$( '.shelf_space' ).switchClass( "shelf_set","shelf_browse", 0);
+		$( "#set" ).text("　＝　Set");
+		count = 0;
+	}
+});
+
+$( '.shelf_set' ).live("click", function(){
+	var id = $(this).attr('id');
+	temp = '<span id="text"><textarea id="remark" class="des_area_small" name="description" width="400px"></textarea><br><button id="red_submit" title="'+id+' type="button" >送出資料</button></span>';
+	
+	var n = window.prompt("更改格子名稱為?", "");
+	//alert(n);
+	$.ajax({
+		context: this,
+		url: "/home/shelf_set",
+		data: { id: id, content: n },
+		success: function(data){
+		 	//$(this).switchClass("lightAvailable", "lightNotAvailable", 0);
+		 	console.log("yabi");
+		},
+		error: function(data){
+			console.log("QQ");
+		}
+	});
+	
+});
+
+
 
 $( "#close" ).click(function(){  
     var sha = parent.document.getElementById("shadow");
@@ -109,7 +147,7 @@ $( ".shelf_space" ).droppable({
 	}*/
 //});
 
-$( ".shelf_space" ).click(function(){
+$( ".shelf_browse" ).live("click",function(){
 	$.ajax({
 		url: "/cloths/browse_method",
 		data: { shelf: $(this).attr('id') },
@@ -226,6 +264,7 @@ $( ".remind_signal" ).click(function(){
 		$(this).parent().remove();
 	} 	
 });
+
 
 /*
 window.onload = function() {
