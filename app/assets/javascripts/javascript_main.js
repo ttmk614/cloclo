@@ -60,8 +60,8 @@ $( "#search" ).click(function() {
 	var new_window = '<div id="window"></div>';
 	$( "#topContent" ).before(new_window);
 	$( "#window" ).css("z-index", 100);
-	$( "#window" ).css("height", "400px").show("clip",{},'fast');
-	document.getElementById( 'window' ).innerHTML = '<iframe src="search.html" scrolling="no" frameborder="0" width="900px" height="100%"></iframe>';
+	$( "#window" ).css("height", "500px").show("clip",{},'fast');
+	document.getElementById( 'window' ).innerHTML = '<iframe src="search.html" scrolling="yes" frameborder="0" width="900px" height="100%"></iframe>';
 });
 
 $(" #remind ").click(function(){
@@ -160,7 +160,7 @@ $( ".signal" ).click(function(){
 	var id = $(this).attr('title');
 	if(($(this).attr('class')).search("lightAvailable") != -1)
 	{
-		temp = '<span id="text"><textarea id="remark" name="description" width="400px"></textarea><button id="red_submit" title="'+id+' type="button" >送出資料</button></span>';
+		temp = '<span id="text"><textarea id="remark" class="des_area_small" name="description" width="400px"></textarea><br><button id="red_submit" title="'+id+' type="button" >送出資料</button></span>';
 		$.ajax({
 			context: this,
 			url: "/cloths/switch",
@@ -211,7 +211,24 @@ $( ".signal" ).click(function(){
 	
 });
 
+$( ".remind_signal" ).click(function(){
+	var id = $(this).attr('title');
+	if(($(this).attr('class')).search("lightAvailable") == -1)
+	{
+		$.ajax({
+			context: this,
+			url: "/cloths/switch",
+			data: { id: id, changeTo: "lightAvailable" },
+			success: function(data){
+			 	$(this).switchClass("lightNotAvailable", "lightAvailable", 0);
+			}
+		});
+		$(this).parent().remove();
+	} 	
+});
+
+/*
 window.onload = function() {
    document.getElementById("siteLoader").style.display = "block";
    document.getElementById("container").style.display = "block";
-}
+}*/
