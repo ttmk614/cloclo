@@ -52,16 +52,16 @@ $( "#create" ).click(function() {
 	var new_window = '<div id="window"></div>';
 	$( "#topContent" ).before(new_window);
 	$( "#window" ).css("z-index", 100);
-	$( "#window" ).css("height", "500px").show("clip",{},'fast');
-	document.getElementById( 'window' ).innerHTML = '<iframe src="create.html" scrolling="yes" frameborder="0" width="900px" height="100%"></iframe>';
+	$( "#window" ).css("height", "450px").show("clip",{},'fast');
+	document.getElementById( 'window' ).innerHTML = '<iframe src="create.html" scrolling="no" frameborder="0" width="900px" height="100%"></iframe>';
 });
 
 $( "#search" ).click(function() {
 	var new_window = '<div id="window"></div>';
 	$( "#topContent" ).before(new_window);
 	$( "#window" ).css("z-index", 100);
-	$( "#window" ).css("height", "500px").show("clip",{},'fast');
-	document.getElementById( 'window' ).innerHTML = '<iframe src="search.html" scrolling="yes" frameborder="0" width="900px" height="100%"></iframe>';
+	$( "#window" ).css("height", "400px").show("clip",{},'fast');
+	document.getElementById( 'window' ).innerHTML = '<iframe src="search.html" scrolling="no" frameborder="0" width="900px" height="100%"></iframe>';
 });
 
 $(" #remind ").click(function(){
