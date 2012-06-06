@@ -46,7 +46,6 @@
 		<div id="tabs2" class="tab_content">
 		<% if !@user.posts.empty? %>
 		<div id="allPost">
-<<<<<<< HEAD
 			<% lines = @user.posts.all %>
 			<% query = "user_id = " + @user.read_attribute('id').to_s %>
 			<% if @user.read_attribute('visible') %>
@@ -62,28 +61,15 @@
 				<div class="aPost" id="<%= account %>">
 					<img src="https://graph.facebook.com/<%= account %>/picture" />
 					<a class="postName"><%= @visible_ids[account] %></a><br />
-=======
-		<% lines = @user.posts.order("updated_at DESC") %>
-		<% lines.each do |post| %>
-			<div class="mutton">
-				<div class="aPost" id="<%= User.find(post.read_attribute(:user_id)).read_attribute(:account) %>">
-					<img src="https://graph.facebook.com/me/picture?access_token=<%= @access_token %>" />
-					<a class="postName"><%= @me['name'] %></a><br />
->>>>>>> b621e65a39c05076ffcdb894600543b2b3d65df7
 					<a class="postContent"><%= post[:content] %></a><br />
 					<a class="postTime"><%= post[:created_at].getlocal %></a>
 				</div>
 				<!-- comment part -->
 				<% post.comments.each do |comment| %>
 				<div class="aComment">
-<<<<<<< HEAD
 					<% commenterid = User.find(comment.read_attribute(:user_id)).read_attribute(:account) %>
 					<img src="https://graph.facebook.com/<%= commenterid %>/picture">
 					<a class="commentName"><%= @visible_ids[ commenterid ] %></a><br />
-=======
-					<img src="https://graph.facebook.com/<%= User.find(comment.read_attribute(:user_id)).read_attribute(:acccount) %>/picture">
-					<a class="commentName"><%= %></a><br />
->>>>>>> b621e65a39c05076ffcdb894600543b2b3d65df7
 					<a class="postContent"><%= comment[:content] %></a><br />
 					<a class="postTime"><%= comment[:created_at].getlocal %></a>
 				</div>
