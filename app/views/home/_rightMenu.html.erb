@@ -11,6 +11,40 @@
 	<div class="tab_container">
 		<div id="tabs1" class="tab_content">
 		<% if !@user.posts.empty? %>
+		<div id="myPost">
+		<% lines = @user.posts.order("updated_at DESC") %>
+		<% lines.each do |post| %>
+			<div class="mutton">
+				<div class="aPost" id="<%= User.find(post.read_attribute(:user_id)).read_attribute(:account) %>">
+					<img src="https://graph.facebook.com/me/picture?access_token=<%= @access_token %>" />
+					<a class="postName"><%= @me['name'] %></a><br />
+					<a class="postContent"><%= post[:content] %></a><br />
+					<a class="postTime"><%= post[:created_at].getlocal %></a>
+				</div>
+				<!-- comment part -->
+				<% post.comments.each do |comment| %>
+				<div class="aComment">
+					<img src="https://graph.facebook.com/<%= User.find(comment.read_attribute(:user_id)).read_attribute(:acccount) %>/picture">
+					<a class="commentName"><%= %></a><br />
+					<a class="postContent"><%= comment[:content] %></a><br />
+					<a class="postTime"><%= comment[:created_at].getlocal %></a>
+				</div>
+				<% end %>
+				<!-- reply textbox -->
+				<div id="reply">
+					<textarea id="replyContent" placeholder="Give a reply..."></textarea>
+					<div id="sendReply" class="<%= @me['id'] %>">Send</div>
+				</div><!--button functionality in JS-->
+
+			</div>
+		<% end %>
+		</div>
+		<% end %>
+		</div>
+		</div>
+		<!-- All Post tab -->
+		<div id="tabs2" class="tab_content">
+		<% if !@user.posts.empty? %>
 		<div id="allPost">
 		<% lines = @user.posts.order("updated_at DESC") %>
 		<% lines.each do |post| %>
@@ -19,23 +53,26 @@
 					<img src="https://graph.facebook.com/me/picture?access_token=<%= @access_token %>" />
 					<a class="postName"><%= @me['name'] %></a><br />
 					<a class="postContent"><%= post[:content] %></a><br />
-					<a class="postTime"><%= post[:created_at] %></a>
+					<a class="postTime"><%= post[:created_at].getlocal %></a>
 				</div>
-				<!--<% post.comments.each do |comment| %>
+				<!-- comment part -->
+				<% post.comments.each do |comment| %>
 				<div class="aComment">
-					<img src="https://graph.facebook.com/<%= comment.read_attribute(:user_id) %>/picture">
-
+					<img src="https://graph.facebook.com/<%= User.find(comment.read_attribute(:user_id)).read_attribute(:acccount) %>/picture">
+					<a class="commentName"><%= %></a><br />
+					<a class="postContent"><%= comment[:content] %></a><br />
+					<a class="postTime"><%= comment[:created_at].getlocal %></a>
 				</div>
-				<% end %>-->
+				<% end %>
+				<!-- reply textbox -->
+				<div id="reply">
+					<textarea id="replyContent" placeholder="Give a reply..."></textarea>
+					<div id="sendReply" class="<%= @me['id'] %>">Send</div>
+				</div><!--button functionality in JS-->
+
 			</div>
-		<% end %>
+		<% end %>	
 		</div>
 		<% end %>
-		</div>
-		</div>
-		<div id="tabs2" class="tab_content">
-			<h2>jQuery is a new kind of JavaScript Library.</h2>
-			<p>jQuery is a fast and concise JavaScript Library that simplifies HTML document traversing, event handling, animating, and Ajax interactions for rapid web development. jQuery is designed to change the way that you write JavaScript</p>
-		</div>
 	</div>
 </div>

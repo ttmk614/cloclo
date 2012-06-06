@@ -52,9 +52,9 @@ $("#sendPost").click(function() {
 				 content: $('#postContent').val() },
 		dataType: 'json',
 		success : function(response){
-			 console.log("response:"+ response ); 
+			console.log("response:"+ response ); 
 			var output = "<div class='mutton'><div class='aPost'><img src='https://graph.facebook.com/"+ $(".aPost").first().attr("id") + "/picture' />"+ $(".aPost").first().children(".postName").text() + "<br /><a class='postContent'>"+ response['content'] +"</a><br /><a class='postTime'>"+ response['created_at'] +"</a></div></div>";
-			 console.log(output); 
+			console.log(output); 
 			$("#allPost").prepend( output );
 		},
 		error : function(){
@@ -64,7 +64,6 @@ $("#sendPost").click(function() {
 			console.log("complete!");
 			$('#postContent').val("");
 	});
-	/* Post(id: integer, name: string, content: text, created_at: datetime, updated_at: datetime, user_id: integer) */
 });
 
 $("#logo").click( function(){
