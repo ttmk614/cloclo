@@ -19,7 +19,7 @@
 					<img src="https://graph.facebook.com/me/picture?access_token=<%= @access_token %>" />
 					<a class="postName"><%= @me['name'] %></a><br />
 					<a class="postContent"><%= post[:content] %></a><br />
-					<a class="postTime"><%= post[:created_at].localtime("+08:00") %></a>
+					<a class="postTime"><%= post[:created_at].localtime() %></a>
 				</div>
 				<!-- comment part -->
 				<% post.comments.each do |comment| %>
@@ -28,7 +28,7 @@
 					<img src="https://graph.facebook.com/<%= commenterid %>/picture">
 					<a class="commentName"><%= @visible_ids[ commenterid ] %></a><br />
 					<a class="postContent"><%= comment[:content] %></a><br />
-					<a class="postTime"><%= comment[:created_at].localtime("+08:00") %></a>
+					<a class="postTime"><%= comment[:created_at].localtime() %></a>
 				</div>
 				<% end %>
 				<!-- reply textbox -->
@@ -62,7 +62,7 @@
 					<img src="https://graph.facebook.com/<%= account %>/picture" />
 					<a class="postName"><%= @visible_ids[account] %></a><br />
 					<a class="postContent"><%= post[:content] %></a><br />
-					<a class="postTime"><%= post[:created_at].localtime("+08:00") %></a>
+					<a class="postTime"><%= post[:created_at].localtime() %></a>
 				</div>
 				<!-- comment part -->
 				<% post.comments.each do |comment| %>
@@ -71,7 +71,7 @@
 					<img src="https://graph.facebook.com/<%= commenterid %>/picture">
 					<a class="commentName"><%= @visible_ids[ commenterid ] %></a><br />
 					<a class="postContent"><%= comment[:content] %></a><br />
-					<a class="postTime"><%= comment[:created_at].localtime("+08:00") %></a>
+					<a class="postTime"><%= comment[:created_at].localtime() %></a>
 				</div>
 				<% end %>
 				<!-- reply textbox -->
