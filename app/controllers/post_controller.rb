@@ -20,7 +20,7 @@ def new
       end   #message, picture, link, name, caption, description, source, place, tags
 
 	render :json => { "content"=> params[:content], 
-					 "created_at" => newpost.created_at.getlocal.to_s.split("+")[0] 
+					 "created_at" => newpost.created_at.localtime("+08:00").to_s.split("+")[0] 
 	}
 
 end
@@ -33,7 +33,7 @@ def newComment #params-- account, postid, content
 	post.user.update_attribute(:updated_at, Time.now)
 	
 	render :json => { "content" => params[:content], 
-			 		  "created_at" => newcomment.created_at.getlocal.to_s.split("+")[0] 
+			 		  "created_at" => newcomment.created_at.localtime("+08:00").to_s.split("+")[0] 
 	}
 end
 

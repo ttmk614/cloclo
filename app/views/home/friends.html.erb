@@ -9,10 +9,9 @@
 	</div>
 
 	<div id="mainContainer" class="lfloat">
-		
+		<div id="friends">Save Changes</div>
 		<div class="friends">
-		<!--<form id="friends">--><!--<%= form_tag do%>-->
-		<span id="friends">Save Changes</span>
+		<!--<%= form_tag do%>-->
 		<% @friends['data'].each do |friend| %>
 			<div class="afriend" >
 				<% if User.find_by_account(@me['id']).read_attribute('friend') %>
@@ -36,7 +35,7 @@
 			</div>
 		<% end %>
 		
-		<!--<% end %></form>-->
+		<!--<% end %>-->
 		</div>
 
 	</div>
@@ -49,5 +48,3 @@
 	
 	<div id="footer"></div>
 </div>
-
-<!--!@prevList[ friend['id'] ].nil?-->
