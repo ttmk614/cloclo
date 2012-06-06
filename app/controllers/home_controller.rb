@@ -102,7 +102,12 @@ class HomeController < ApplicationController
   end
 
   def help
-    redirect_to home_path
+       @access_token = rest_graph.access_token
+      if @access_token
+        @me = rest_graph.get('/me')
+        @friends = rest_graph.get('me/friends')
+        @user = User.find_by_account( @me['id'] )
+      end
   end
 
 
