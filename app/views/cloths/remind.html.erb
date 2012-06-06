@@ -1,13 +1,3 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
-<head>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<link type="text/css" href="stylesheets/popups.css" rel="Stylesheet" />
-<link type="text/css" href="stylesheets/main.css" rel="Stylesheet" />
-<title>Untitled Document</title>
-</head>
-<body>
-
 <div id="browse" class="pop_up">
 	<div class="popupHeader"><span>●　在外衣服</span><span class="rfloat" id="close">×</span></div>
 	<div class="popupMain">
@@ -19,7 +9,7 @@
 			<% end %>
 			<% @cloth.each do |clo| %>
 				<li class="hanger">
-		    		<div class="<%=clo['signal']%> signal" title="<%=clo['id']%>">●</div>
+		    		<div class="<%=clo['signal']%> remind_signal" title="<%=clo['id']%>">●</div>
 		    		<div class="clothPic"><img src="/uploads/<%= clo['image'] %>" /><br/>
 		    		<ul>
 		    		<li class="plain_text"><div class="plain_text_bold">分類：</div><%= clo['public_class'] %></li>
@@ -30,7 +20,7 @@
 		    			<% end %></li>
 		    		<li class="plain_text"><div class="plain_text_bold">衣櫃：</div><%= clo['private_class'] %></li>
 		    		<li class="plain_text"><div class="plain_text_bold">隱私：</div>
-		    			<% if clo['privacy'] == true %>
+		    			<% if clo['privacy'] == false %>
 		    			<%='公開' %>
 		    			<% else %>
 		    			<%='非公開' %>
@@ -50,6 +40,4 @@
 	$(function() {
 		$( "#browse" ).slider();
 	});
-	</script>
-</body>
-</html>
+</script>

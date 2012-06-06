@@ -210,6 +210,23 @@ $( ".signal" ).click(function(){
 	} 
 	
 });
+
+$( ".remind_signal" ).click(function(){
+	var id = $(this).attr('title');
+	if(($(this).attr('class')).search("lightAvailable") == -1)
+	{
+		$.ajax({
+			context: this,
+			url: "/cloths/switch",
+			data: { id: id, changeTo: "lightAvailable" },
+			success: function(data){
+			 	$(this).switchClass("lightNotAvailable", "lightAvailable", 0);
+			}
+		});
+		$(this).parent().remove();
+	} 	
+});
+
 /*
 window.onload = function() {
    document.getElementById("siteLoader").style.display = "block";
