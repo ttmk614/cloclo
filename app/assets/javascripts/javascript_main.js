@@ -54,6 +54,7 @@ $( '.shelf_set' ).live("click", function(){
 		data: { id: id, content: n },
 		success: function(data){
 		 	//$(this).switchClass("lightAvailable", "lightNotAvailable", 0);
+		 	location.reload();
 		 	console.log("yabi");
 		},
 		error: function(data){
