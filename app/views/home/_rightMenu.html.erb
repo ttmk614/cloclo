@@ -22,13 +22,17 @@
 					<a class="postTime"><%= post[:created_at].getlocal %></a>
 				</div>
 				<!-- comment part -->
+				<% if !post.comments.empty? %>
 				<% post.comments.each do |comment| %>
 				<div class="aComment">
-					<img src="https://graph.facebook.com/<%= User.find(comment.read_attribute(:user_id)).read_attribute(:acccount) %>/picture">
-					<a class="commentName"><%= %></a><br />
+					<%= commenterid = User.find(comment.read_attribute(:user_id)).read_attribute(:account) %>
+					<% commenter = "me" %>
+					<img src="https://graph.facebook.com/<%= commenterid %>/picture">
+					<a class="commentName"><%= commenter['name']%></a><br />
 					<a class="postContent"><%= comment[:content] %></a><br />
 					<a class="postTime"><%= comment[:created_at].getlocal %></a>
 				</div>
+				<% end %>
 				<% end %>
 				<!-- reply textbox -->
 				<div id="reply">
@@ -40,28 +44,39 @@
 		</div>
 		<% end %>
 		</div>
-		</div>
+		
 		<!-- All Post tab -->
 		<div id="tabs2" class="tab_content">
 		<% if !@user.posts.empty? %>
 		<div id="allPost">
-		<% lines = @user.posts.order("updated_at DESC") %>
-		<% lines.each do |post| %>
+			<% lines = @user.posts.all %>
+			<% query = "user_id = " + @user.read_attribute('id').to_s %>
+			<% if @user.read_attribute('visible') %>
+				<% JSON.parse(@user.read_attribute('visible')).each do |visible| %>
+					<% query = query + " OR user_id = " + User.find_by_account(visible).read_attribute('id').to_s %>
+				<% end %>
+			<% end %>
+		<% allposts = Post.where( query ).order("updated_at DESC") %>
+		<% allposts.each do |post| %>
+			<% user_id = post.read_attribute(:user_id)%>
+			<% account = User.find(user_id).read_attribute(:account) %>
 			<div class="mutton">
-				<div class="aPost" id="<%= User.find(post.read_attribute(:user_id)).read_attribute(:account) %>">
-					<img src="https://graph.facebook.com/me/picture?access_token=<%= @access_token %>" />
-					<a class="postName"><%= @me['name'] %></a><br />
+				<div class="aPost" id="<%= account %>">
+					<img src="https://graph.facebook.com/<%= account %>/picture" />
+					<a class="postName"><%= @visible_ids[account] %></a><br />
 					<a class="postContent"><%= post[:content] %></a><br />
 					<a class="postTime"><%= post[:created_at].getlocal %></a>
 				</div>
 				<!-- comment part -->
+				<% if !post.comments.empty? %>
 				<% post.comments.each do |comment| %>
 				<div class="aComment">
-					<img src="https://graph.facebook.com/<%= User.find(comment.read_attribute(:user_id)).read_attribute(:acccount) %>/picture">
+					<img src="https://graph.facebook.com/<%= User.find(comment.read_attribute(:user_id)).read_attribute(:account) %>/picture">
 					<a class="commentName"><%= %></a><br />
 					<a class="postContent"><%= comment[:content] %></a><br />
 					<a class="postTime"><%= comment[:created_at].getlocal %></a>
 				</div>
+				<% end %>				
 				<% end %>
 				<!-- reply textbox -->
 				<div id="reply">
@@ -73,5 +88,6 @@
 		<% end %>	
 		</div>
 		<% end %>
+	</div>
 	</div>
 </div>

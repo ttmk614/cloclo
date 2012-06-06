@@ -1,0 +1,33 @@
+<div id="globalContainer">
+
+	<%= render "home/top" %>
+
+	
+	<% if @access_token %>
+	<div id="content">
+	<div id="left_menu" class="lfloat">
+		<%= render "home/leftMenu" %>    
+	</div>
+
+	<div id="mainContainer" class="lfloat">
+		<div class="description">
+			<div class="description_title">•	第一次使用CloClo嗎？</div><br>
+			　　<div class="description_bold">1. 上傳自己的衣服圖片</div><br>
+				　　從電腦中上傳照片，或是直接用網路攝影機拍攝照片，接著設定好衣服資料。可選擇顏色、種類，以及衣服的隱私權設定。設定完畢，按下送出！<br>　　資料送出後，將圖片拖曳至想要收藏的衣櫃格子中。<br>
+			　　<div class="description_bold">2. 尋找自己的衣服</div><br>
+				　　不太記得自己有哪些衣服了嗎？為了避免買到重複樣式的衣服，或是臨時有朋友需要借衣服，可以使用「搜尋」功能，尋找符合條件的衣服！<br>
+			　　<div class="description_bold">3. 標記衣服的流向</div><br>
+				　　衣服出借、送洗，怕自己不小心忘記？只要將衣服上方的綠燈改設為紅燈，衣服就會出現在「Reminder」中，還可以增加說明的文字敘述！可以不時提醒自己哪些衣服出借中或送洗中。<br><br>
+			　　<div class="description_bold">4. 與朋友分享、交流</div><br>
+				　　買了新衣服，希望和朋友分享，順便聽聽朋友們的意見？想要借衣服，但不知道找誰問？可以PO動態向朋友們分享或求救！<br>
+		</div>
+
+	</div>
+	<div id="right_menu" class="rfloat"><%= render "home/rightMenu" %></div>
+	</div>
+	<% else %>
+	<%= render "home/blank" %>
+	<% end %>
+	
+	<div id="footer"></div>
+</div>

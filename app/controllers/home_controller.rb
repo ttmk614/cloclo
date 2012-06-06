@@ -27,6 +27,17 @@ class HomeController < ApplicationController
           #need to initialize visible
         end
         cookies[:user] = @user.account
+
+        @visible_ids = Hash.new()
+        @visible_ids[ @me['id'] ] = @me['name']
+        #@visible_ids['100000280565711'] = "Hsiang Chih"
+        if @user.read_attribute(:visible)
+          JSON.parse(@user.read_attribute(:visible)).each do |visible|
+            @visible_ids[ visible.to_s ] = rest_graph.get('/'+visible.to_s)['name']
+
+          end
+        end
+
       end
   end
 
@@ -53,13 +64,19 @@ class HomeController < ApplicationController
         @prevList = Array.new()
       end
 
-      #respond_to do |format|
-      #format.html # editfriend.html.erb
-      #format.json { render json: params }
-      #end
+         @visible_ids = Hash.new()
+        @visible_ids[ @me['id'] ] = @me['name']
+        #@visible_ids['100000280565711'] = "Hsiang Chih"
+        if @user.read_attribute(:visible)
+          JSON.parse(@user.read_attribute(:visible)).each do |visible|
+            @visible_ids[ visible.to_s ] = rest_graph.get('/'+visible.to_s)['name']
+
+          end
+        end     
   end
 
   def editfriend
+    #get user account
     #@access_token = rest_graph.access_token
     #@me = rest_graph.get('/me')
     user = cookies[:user]
@@ -68,34 +85,38 @@ class HomeController < ApplicationController
     @user = User.find_by_account( user )
 
     #update self- friend list
-    @user.update_attribute(:friend, params[:editfriend] )
+    if params[:editfriend]
+      @user.update_attribute(:friend, params[:editfriend].to_json )
+    end
+    @user = User.find_by_account( user )
     #update selected friends 
-    #params[:editfriend].each do |friend|
-    #  u = User.find_by_account(friend)
-    #  if u
-    #    friendfriend = u.read_attribute(:friend).to_a
-    #    place = friendfriend.index( cookies['user'] )
-    #    if place < 0
-    #      newfriendfriend = friendfriend.push( cookies['user'] )
-    #      u.update_attribute(:friend, newfriendfriend)
-    #    end
-
-    #end
-
-    render :text => params[:editfriend]
-    #respond_to do |format|
-    #  if params
-    #    format.html { render :text => params}
-    #    format.json { render json: params }
-    #  else
-    #    format.html 
-      #  format.json { render json: @post.errors, status: :unprocessable_entity }
-    #  end
-    #end
+    JSON.parse(@user.read_attribute(:friend)).each do |friend|
+      userfriend = User.find_by_account(friend)
+      if userfriend
+        if userfriend.read_attribute(:visible)
+          friendsVisible = JSON.parse( userfriend.read_attribute(:visible) )
+          if !friendsVisible.include?( cookies['user'] )
+            newfriendsVisible = friendsVisible
+            newfriendsVisible.push( cookies['user'] )
+            userfriend.update_attribute(:visible, newfriendsVisible.to_json)
+          end
+        else #userfriend's visible is empty
+          newfriendsVisible = Array.new()
+          newfriendsVisible.push(cookies['user'])
+          userfriend.update_attribute(:visible, newfriendsVisible.to_json)
+        end
+      end
+    end
+   render :text => params[:editfriend]
   end
 
   def help
-    redirect_to home_path
+       @access_token = rest_graph.access_token
+      if @access_token
+        @me = rest_graph.get('/me')
+        @friends = rest_graph.get('me/friends')
+        @user = User.find_by_account( @me['id'] )
+      end
   end
 
   def shelf_set
