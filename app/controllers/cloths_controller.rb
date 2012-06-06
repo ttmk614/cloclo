@@ -20,12 +20,18 @@ def create_form
   end
 
   user = User.find_by_account(cookies[:user].to_s)
-  t = user.cloths.create(:public_class   => params[:choose_type],
-                         :color          => params[:choose_color].to_json, 
+  t = user.cloths.create(:public_class   => params[:choose_type], 
                          :description    => params[:description], 
                          :privacy        => pri,
                          :image          => cookies[:path], 
+                         :color          => params[:choose_color].to_json,
                          :signal         => "lightAvailable")#, :redRemark, :redTime, :signal
+  
+  params[:choose_color].each do |i|
+    c = t.colors.create(:cloth_id   => t[:id],
+                        :color      => i)
+  end
+  
   cookies[:temp] = t[:id]
   redirect_to "/created"
 end
@@ -47,6 +53,12 @@ def browse_method
   render :text => "ok"
 end
 
+=begin
+def red_remark
+  $(this).attr('title')
+end
+=end
+
 def drop_method
   user = User.find_by_account(cookies[:user])
   t = user.cloths.find(cookies[:temp].to_i)
@@ -61,6 +73,16 @@ def switch
   t[:signal] = params[:changeTo]
   t.save
   render :text => "ok"
+end
+
+def red_mark
+  user = User.find_by_account(cookies[:user])
+  t = user.cloths.find(params[:id].to_i)
+  t[:redRemark] = params[:content]
+  #t[:redTime] = Time.now.to_i.to_s
+  t.save
+  render :text => params[:content]
+  
 end
 
 def search_form

@@ -1,7 +1,7 @@
 @charset "UTF-8";
 .pop_up{
 	width: 900px;
-	height: 400px;
+	height: 500px;
 	left: 250px;
 
 }
@@ -20,10 +20,10 @@
 }
 #close{
 	/*margin: 100px 100px;*/
-	cursor: default;
+	cursor: pointer;
 }
 .popupMain{
-	height: 380px;
+	height: 480px;
 	width: 100%;
 	background-color: #F7E4E5;
 	overflow: hidden;
@@ -68,6 +68,7 @@
 	border: 1px;
 	background: #F29C9F;
 	border-radius: 5px;
+	cursor: pointer;
 }
 .submit_all:hover{
   border-top: 1px solid #fff;
@@ -85,7 +86,7 @@
 	display: inline-block;
 }
 .list{
-	height: 380px;
+	height: 480px;
 	width: auto;
 	overflow-x: scroll;
 	overflow-y: scroll;
@@ -165,4 +166,8 @@
 /* ----------------------------------------------------*/
 .choose_light form{
 	height: 30px;
+}
+
+.signal{
+	cursor: pointer;
 }

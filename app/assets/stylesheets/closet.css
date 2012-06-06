@@ -24,11 +24,13 @@ td.shelf_space {
 	-moz-transition-property: background-color, font;
 	-moz-transition-duration: 0.5s, 0.5s;
 	-moz-transition-timing-function: ease-in, ease-in;
+	cursor: pointer;
 }
 td.shelf_space:hover {
 	background: #E8BB68;
 	color: #6D5120;
 }
+
 /*衣櫃動態　closet_mouseover可以不用了*/
 .closet_mouseover {
 	background: #E8BB68;

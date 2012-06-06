@@ -52,8 +52,8 @@ $( "#create" ).click(function() {
 	var new_window = '<div id="window"></div>';
 	$( "#topContent" ).before(new_window);
 	$( "#window" ).css("z-index", 100);
-	$( "#window" ).css("height", "400px").show("clip",{},'fast');
-	document.getElementById( 'window' ).innerHTML = '<iframe src="create.html" scrolling="yes" frameborder="0" width="900px" height="100%"></iframe>';
+	$( "#window" ).css("height", "450px").show("clip",{},'fast');
+	document.getElementById( 'window' ).innerHTML = '<iframe src="create.html" scrolling="no" frameborder="0" width="900px" height="100%"></iframe>';
 });
 
 $( "#search" ).click(function() {
@@ -61,14 +61,14 @@ $( "#search" ).click(function() {
 	$( "#topContent" ).before(new_window);
 	$( "#window" ).css("z-index", 100);
 	$( "#window" ).css("height", "400px").show("clip",{},'fast');
-	document.getElementById( 'window' ).innerHTML = '<iframe src="search.html" scrolling="yes" frameborder="0" width="900px" height="100%"></iframe>';
+	document.getElementById( 'window' ).innerHTML = '<iframe src="search.html" scrolling="no" frameborder="0" width="900px" height="100%"></iframe>';
 });
 
 $(" #remind ").click(function(){
 	var new_window = '<div id="window"></div>';
 	$( "#topContent" ).before(new_window);
 	$( "#window" ).css("z-index", 100);
-	$( "#window" ).css("height", "400px").show("clip",{},'fast');
+	$( "#window" ).css("height", "500px").show("clip",{},'fast');
 	document.getElementById( 'window' ).innerHTML = '<iframe src="remind.html" scrolling="yes" frameborder="0" width="900px" height="100%"></iframe>';
 });
 
@@ -80,6 +80,7 @@ $(  "td" ).mouseout(function() {
 	$(this).removeClass( 'closet_mouseover' );
 });*/
 $( "#new_cloth" ).live("mouseover", function(){ $(this).draggable(); });
+
 $( ".shelf_space" ).droppable({
 	hoverClass: "cloth_on",
 	drop: function( event, ui ) {
@@ -111,46 +112,102 @@ $( ".shelf_space" ).droppable({
 $( ".shelf_space" ).click(function(){
 	$.ajax({
 		url: "/cloths/browse_method",
-		data: { shelf: $(this).attr('id') }
+		data: { shelf: $(this).attr('id') },
+		success: function(data){
+		 	var new_window = '<div id="window"></div>';
+			$( "#topContent" ).before(new_window);
+			$( "#window" ).css("z-index", 100);
+			$( "#window" ).css("height", "500px").show("clip",{},'fast');
+			document.getElementById( 'window' ).innerHTML = '<iframe src="browse.html" scrolling="yes" frameborder="0" width="900px" height="100%"></iframe>';
+		 	console.log("yabi");
+		}
+
 	});
-
-	var new_window = '<div id="window"></div>';
-	$( "#topContent" ).before(new_window);
-	$( "#window" ).css("z-index", 100);
-	$( "#window" ).css("height", "400px").show("clip",{},'fast');
-	document.getElementById( 'window' ).innerHTML = '<iframe src="browse.html" scrolling="yes" frameborder="0" width="900px" height="100%"></iframe>';
-
 	
 });
-
-$( ".signal" ).click(function(){
-	var now;
-	var changeTo;
-	if(($(this).attr('class')).search("lightAvailable") != -1)
-	{
-		now = "lightAvailable";
-		changeTo = "lightNotAvailable";
-	}
-	else
-	{
-		now = "lightNotAvailable";
-		changeTo = "lightAvailable";
-	}
-	
+/*
+$( ".lightAvailable" ).click(funciton(){
 	$.ajax({
 		context: this,
 		url: "/cloths/switch",
-		data: { id: $(this).attr('title'), changeTo: changeTo },
+		data: { id: $(this).attr('title'), changeTo: "lightNotAvailable" },
 		success: function(data){
-		 	$(this).switchClass(now, changeTo);
-		 	//$(this).removeClass(now);
-		 	//$(this).addClass(changeTo, 1000);
+		 	$(this).switchClass("lightAvailable", "lightNotAvailable", 0);
 		 	console.log("yabi");
 		},
 		error: function(data){
 			console.log("QQ");
 		}
 	});
+
+});
+
+$( ".lightNotAvailable" ).click(funciton(){
+	$.ajax({
+		context: this,
+		url: "/cloths/switch",
+		data: { id: $(this).attr('title'), changeTo: "lightAvailable" },
+		success: function(data){
+		 	$(this).switchClass("lightNotAvailable", "lightAvailable", 0);
+		 	console.log("yabi");
+		},
+		error: function(data){
+			console.log("QQ");
+		}
+	});
+});*/
+$( ".signal" ).click(function(){
+	var id = $(this).attr('title');
+	if(($(this).attr('class')).search("lightAvailable") != -1)
+	{
+		temp = '<span id="text"><textarea id="remark" name="description" width="400px"></textarea><button id="red_submit" title="'+id+' type="button" >送出資料</button></span>';
+		$.ajax({
+			context: this,
+			url: "/cloths/switch",
+			data: { id: id, changeTo: "lightNotAvailable" },
+			success: function(data){
+			 	$(this).switchClass("lightAvailable", "lightNotAvailable", 0);
+			 	console.log("yabi");
+			},
+			error: function(data){
+				console.log("QQ");
+			}
+		});
+
+		$("#text").remove();
+		$( this ).parent().append(temp);
+
+		$( "#red_submit" ).click(function(){
+			$.ajax({
+				context: this,
+				url: "/cloths/red_mark",
+				data: { id: $(this).attr('title'), content: document.getElementById('remark').value },
+				success: function(data){
+				 	console.log(data);
+				 	$("#text").remove();
+				},
+				error: function(data){
+					console.log("QQ");
+				}
+			});
+		});
+	}
+	else
+	{
+		$("#text").remove();
+		$.ajax({
+			context: this,
+			url: "/cloths/switch",
+			data: { id: id, changeTo: "lightAvailable" },
+			success: function(data){
+			 	$(this).switchClass("lightNotAvailable", "lightAvailable", 0);
+			 	console.log("yabi");
+			},
+			error: function(data){
+				console.log("QQ");
+			}
+		});
+	} 
 	
 });
 
