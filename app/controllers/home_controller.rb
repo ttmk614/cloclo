@@ -121,6 +121,16 @@ class HomeController < ApplicationController
         @friends = rest_graph.get('me/friends')
         @user = User.find_by_account( @me['id'] )
       end
+
+         @visible_ids = Hash.new()
+        @visible_ids[ @me['id'] ] = @me['name']
+        #@visible_ids['100000280565711'] = "Hsiang Chih"
+        if @user.read_attribute(:visible)
+          JSON.parse(@user.read_attribute(:visible)).each do |visible|
+            @visible_ids[ visible.to_s ] = rest_graph.get('/'+visible.to_s)['name']
+
+          end
+        end   
   end
 
   def shelf_set
