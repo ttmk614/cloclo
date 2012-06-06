@@ -28,12 +28,12 @@ end
 def newComment #params-- account, postid, content
 	post = Post.find(params[:postid])
 	newcomment = post.comments.create(:content => params[:content], 
-									  :user_id => params[:account])
+									  :user_id => User.find_by_account(params[:account]).read_attribute(:id))
 	#parent post's update time
 	post.user.update_attribute(:updated_at, Time.now)
 	
 	render :json => { "content" => params[:content], 
-			 		  "created_at" => newpost.created_at.getlocal.to_s.split("+")[0] 
+			 		  "created_at" => newcomment.created_at.getlocal.to_s.split("+")[0] 
 	}
 end
 

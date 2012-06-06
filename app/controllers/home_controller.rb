@@ -41,6 +41,10 @@ class HomeController < ApplicationController
     redirect_to home_path
   end
 
+  def right
+    render :html => 'home/rightMenu'
+  end
+
   def friends
       @access_token = rest_graph.access_token
       if @access_token

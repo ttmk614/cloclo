@@ -6,6 +6,7 @@ Cloclo::Application.routes.draw do
   get '/friends'  => 'home#friends', :as => :friends
   get '/editfriend' => 'home#editfriend'
   get '/post/new'   => 'post#new'
+  get '/post/newComment' => 'post#newComment'
   get '/help'     => 'home#help'
   #for file upload
   post "cloths/new" => "cloths#upload"
@@ -16,6 +17,9 @@ Cloclo::Application.routes.draw do
   get '/searched' => 'cloths#search_after'
   get 'remind.html' => 'cloths#remind'
   match "/cloth/delete/:id" => "cloths#delete"
+
+  #for partial reload
+  get '/right' => 'home#right'
 
   #post "cloths/file" => "cloths#upload_file"
   #end
