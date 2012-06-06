@@ -30,7 +30,13 @@
 
 }
 .postTime{
-	
+	font-size: 6px;
+}
+.aComment{
+	margin-left: 40px;
+}
+.aComment img{
+	width: 25px;
 }
 
 
@@ -38,19 +44,35 @@
 /*跟頁籤有關的CSS*/
 #right_menu{
 	position: absolute;
-	left: 800px;
-	width: 200px;
+	right: 0;
+	width: 300px;
 	/*overflow: auto;*/	
 }
-#postContent {
-  border-radius: 3px;
-  width: 175px;
-  height: 50px;
+#newpost{
+	height: 100px;
+}
+#postContent, .replyContent{
+  display: inline-block;
+  border-radius: 5px;
+  color: gray;
+  margin: 0 auto;
+  /* border-bottom: 1px solid #FFF;*/
+  /*border-right: 1px solid #FFF;*/
+  border: none;
+  box-shadow: inset 3px 1px 1px rgba(178,178,178,.4);
+}
+#postContent{
+  width: 250px;
+  height: 30px;
   font-size: 8px;
   padding: 20px;
-  color: gray;
   background: #DFEFFC;
-  box-shadow: inset 0 1px 1px rgba(0,0,0,.4);
+}
+.replyContent{
+	height: 18px;
+	width: 170px;
+	padding: 5px;
+  background: #e9f3fb;
 }
 #postContent:focus{
   /* Cancel the orange outline when in focus */
@@ -62,12 +84,41 @@
   text-shadow: none;
   opacity: .5;
 }
+#sendPost, .sendReply{
+	display: inline-block;
+	border-radius: 5px;
+	-webkit-transition-property: background-color, font;
+	-webkit-transition-duration: 0.5s, 0.5s;
+	-webkit-transition-timing-function: ease-in, ease-in;
+	-moz-transition-property: background-color, font;
+	-moz-transition-duration: 0.5s, 0.5s;
+	-moz-transition-timing-function: ease-in, ease-in;
+	cursor: pointer;	
+}
 #sendPost{
 	background: lightblue;
-	cursor: pointer;
+	float: right;
+	padding: 0 6px 3px 6px;
+	margin: 0 8px;
+	z-index: 80;
 }
+#sendPost:hover{
+	background: #3B6687;
+	color: #FFF;
+}
+#sendPost:active{
+	background: #FFF;
+	color: #3B6687;
+}
+.sendReply{
+	padding: 0 6px 3px 6px;
+	margin: 0 0 10px 0;
+	background: #dcdcdc;
+}
+
 #right_menu #tabs{
 	background: none;
+	height: 300px;
 }
 #right_menu .tabs_back{
 	border: 0;
@@ -95,13 +146,13 @@
 	border-bottom-left-radius: 7px;
 	border-bottom-right-radius: 7px;
 	border-top-right-radius: 7px;
+	overflow: auto;
 }
-.tab_content h1,h2,p,a{
+.postName, .tab_content h1,h2,p,a{
 	color: #3b6687;
 }
 .tab_content{
-	height: 90%;
-	overflow: hidden;
+	
 	/* scrollbar-base-color:       #CCCCCC; /**/
 	/* scrollbar-arrow-color:      #3B6687; /* 捲軸箭頭 */
 	/* scrollbar-track-color:      #a0bfe8; /* 捲軸底色 */

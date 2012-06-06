@@ -14,56 +14,57 @@
 ActiveRecord::Schema.define(:version => 20120606141716) do
 
   create_table "cloths", :force => true do |t|
-    t.integer  "user_id"
-    t.string   "image"
-    t.text     "description"
-    t.string   "color"
-    t.boolean  "privacy"
-    t.string   "redRemark"
-    t.time     "redTime"
-    t.datetime "created_at",    :null => false
-    t.datetime "updated_at",    :null => false
-    t.string   "public_class"
-    t.string   "private_class"
-    t.string   "signal"
+    t.integer   "user_id"
+    t.string    "image"
+    t.text      "description"
+    t.string    "color"
+    t.boolean   "privacy"
+    t.string    "redRemark"
+    t.time      "redTime"
+    t.timestamp "created_at",    :null => false
+    t.timestamp "updated_at",    :null => false
+    t.string    "public_class"
+    t.string    "private_class"
+    t.string    "signal"
   end
 
   create_table "colors", :force => true do |t|
-    t.string   "color"
-    t.integer  "cloth_id"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
+    t.string    "color"
+    t.integer   "cloth_id"
+    t.timestamp "created_at", :null => false
+    t.timestamp "updated_at", :null => false
   end
 
   create_table "comments", :force => true do |t|
-    t.text     "content"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
-    t.integer  "user_id"
+    t.text      "content"
+    t.integer   "post_id"
+    t.timestamp "created_at", :null => false
+    t.timestamp "updated_at", :null => false
+    t.integer   "user_id"
   end
 
   create_table "posts", :force => true do |t|
-    t.string   "name"
-    t.text     "content"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
-    t.integer  "user_id"
+    t.string    "name"
+    t.text      "content"
+    t.timestamp "created_at", :null => false
+    t.timestamp "updated_at", :null => false
+    t.integer   "user_id"
   end
 
   create_table "users", :force => true do |t|
-    t.string   "account"
-    t.text     "friend"
-    t.text     "visible"
-    t.text     "spec"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
-    t.string   "sh1"
-    t.string   "sh2"
-    t.string   "sh3"
-    t.string   "sh4"
-    t.string   "sh5"
-    t.string   "sh6"
-    t.string   "sh7"
+    t.string    "account"
+    t.text      "friend"
+    t.text      "visible"
+    t.text      "spec"
+    t.timestamp "created_at", :null => false
+    t.timestamp "updated_at", :null => false
+    t.string    "sh1"
+    t.string    "sh2"
+    t.string    "sh3"
+    t.string    "sh4"
+    t.string    "sh5"
+    t.string    "sh6"
+    t.string    "sh7"
   end
 
 end

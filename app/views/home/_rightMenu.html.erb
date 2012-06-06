@@ -33,8 +33,8 @@
 				<% end %>
 				<!-- reply textbox -->
 				<div id="reply">
-					<textarea id="replyContent" placeholder="Give a reply..."></textarea>
-					<div id="sendReply" class="<%= @me['id'] %>">Send</div>
+					<textarea class="replyContent" placeholder="Give a reply..."></textarea>
+					<div class="sendReply" id="<%= @me['id'] %>">Reply</div>
 				</div><!--button functionality in JS-->
 			</div>
 		<% end %>
@@ -76,10 +76,9 @@
 				<% end %>
 				<!-- reply textbox -->
 				<div id="reply">
-					<textarea id="replyContent" placeholder="Give a reply..."></textarea>
-					<div class="sendReply" id="<%= @me['id'] %>">Send</div>
+					<textarea class="replyContent" placeholder="Give a reply..."></textarea>
+					<div class="sendReply" id="<%= @me['id'] %>">Reply</div>
 				</div><!--button functionality in JS-->
-
 			</div>
 		<% end %>	
 		</div>
