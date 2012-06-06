@@ -1,0 +1,37 @@
+<div id='siteLoader'> 
+        <div id='siteDetailLoader' style="font-size: 600px; display: none;"> 
+        Please wait while the page loads...<br /> <br /> 
+        </div> 
+</div> 
+
+<div id="globalContainer">
+
+	<%= render "home/top" %>
+
+	
+	<% if @access_token %>
+	<div id="content">
+	<div id="left_menu" class="lfloat">
+		<%= render "home/leftMenu" %>    
+	</div>
+
+	<div id="mainContainer" class="lfloat">
+		<div class="closet" align="center">
+			<table class="shelf">
+			    <tr><td id="1" rowspan="4" class="shelf_space_setting">大衣</td><td id="2" class="shelf_space_setting">短袖上衣</td></tr>
+			    <tr><td id="3" class="shelf_space_setting">長袖上衣</td></tr>
+			    <tr><td id="4" class="shelf_space">短褲</td></tr>
+			    <tr><td id="5" class="shelf_space">長褲</td></tr>
+			    <tr><td id="6" class="shelf_space">鞋子</td>
+			    	<td id="7" class="shelf_space">飾品</td></tr>
+		    </table>
+		</div>
+	</div>
+	<div id="right_menu" class="rfloat"><%= render "home/rightMenu" %></div>
+	</div>
+	<% else %>
+	<%= render "home/blank" %>
+	<% end %>
+	
+	<div id="footer"></div>
+</div>
