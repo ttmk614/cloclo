@@ -51,7 +51,7 @@
 			<% query = "user_id = " + @user.read_attribute('id').to_s %>
 			<% if @user.read_attribute('visible') %>
 				<% JSON.parse(@user.read_attribute('visible')).each do |visible| %>
-					<% query = query + " OR " + User.find_by_account(visible).read_attribute('id').to_s %>
+					<% query = query + " OR user_id = " + User.find_by_account(visible).read_attribute('id').to_s %>
 				<% end %>
 			<% end %>
 		<% allposts = Post.where( query ).order("updated_at DESC") %>
