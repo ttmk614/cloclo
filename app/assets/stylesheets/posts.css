@@ -1,6 +1,8 @@
 @charset "UTF-8";
 
-
+.posts{
+	background: #9BBBE5;
+}
 /*.friends{
 	text-align: left;
 	padding: 0 10px;

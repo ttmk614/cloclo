@@ -15,9 +15,7 @@
 	background-color: #D08D34;
 	border-radius: 5px;
 }
-td.shelf_space {
-	background: #BB8D3F;
-	border: 5px solid #D08D34;
+.shelf_browse, .shelf_set{
 	-webkit-transition-property: background-color, font;
 	-webkit-transition-duration: 0.5s, 0.5s;
 	-webkit-transition-timing-function: ease-in, ease-in;
@@ -26,8 +24,20 @@ td.shelf_space {
 	-moz-transition-timing-function: ease-in, ease-in;
 	cursor: pointer;
 }
-td.shelf_space:hover {
+.shelf_browse {
+	background: #BB8D3F;
+	border: 5px solid #D08D34;
+}
+.shelf_browse:hover {
 	background: #E8BB68;
+	color: #6D5120;
+}
+.shelf_set {
+	background: #f3d197;
+	border: 5px solid #debd8c;
+}
+.shelf_set:hover{
+	background: #c3a571;
 	color: #6D5120;
 }
 

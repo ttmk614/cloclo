@@ -34,11 +34,15 @@ $( "#set" ).click(function(){
 	//$( this ).
 		$( "#set" ).text("　＝　Done");
 		count = 1;
+		$( '.shelf' ).css( "background-color", "#debd8c" );
+		//$( '.shelf_space' ).css( "background-color", "#f3d197" );
+		//$( '.shelf_space' ).css( "border", "5px solid #debd8c" );
 	}
 	else {
 		$( '.shelf_space' ).switchClass( "shelf_set","shelf_browse", 0);
 		$( "#set" ).text("　＝　Set");
 		count = 0;
+		$( '.shelf' ).css( "background-color", "#D08D34" );
 	}
 });
 

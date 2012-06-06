@@ -186,6 +186,8 @@ table{
 	background: #ACD598;
 	margin: 6px;
 	border-radius: 7px;
+	border-bottom: 1px solid #92bc7e;
+	border-right:  1px solid #9cc18b;
 }
 .username{
 	display: inline-block;
@@ -226,17 +228,17 @@ ul#closetFunction li:active{
   background: -webkit-gradient(linear, left bottom, left top, color-stop(0%,#caa5cf), color-stop(100%,#ad78a1)); /* Chrome,Safari4+ */
   vertical-align: 1px;
 }
-ul#closetFunction li:nth-child(3n+1) {
+ul#closetFunction li:nth-child(4n+1) {
 	background: #EE6267;
 }
-ul#closetFunction li:nth-child(3n+2) {
+ul#closetFunction li:nth-child(4n+2) {
 	background: #F0898D;
 }
-ul#closetFunction li:nth-child(3n+3) {
+ul#closetFunction li:nth-child(4n+3) {
 	background: #F29C9F;
 }
-.posts{
-	background: #9BBBE5;
+ul#closetFunction li:nth-child(4n+4) {
+	background: #f6b9bb;
 }
 
 .description{
