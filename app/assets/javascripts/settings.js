@@ -64,18 +64,18 @@ $("#sendPost").click(function() {
 	}).done(function(){
 			console.log("complete!");
 			$('#postContent').val("");
-			$('#rightmenu').load('/right');
+			location.reload();
 	});
 });
 
-$("#sendReply").click(function() {
+$(".sendReply").click(function() {
 
-	console.log("account:"+ $(this).attr("class")+ "/ postid:" + $(this).parent().parent().attr("id") + "/ content:" + $(this).siblings("textarea").val());
+	console.log("account:"+ $(this).attr("id")+ "/ postid:" + $(this).parent().parent().attr("id") + "/ content:" + $(this).siblings("textarea").val());
 
 	$.ajax({
 		type : "GET",
 		url  : "/post/newComment",//account, postid, content
-		data : { account: $(this).attr("class") , 
+		data : { account: $(this).attr("id") , 
 				 postid:  $(this).parent().parent().attr("id"),
 				 content: $(this).siblings("textarea").val() },
 		dataType: 'json',
