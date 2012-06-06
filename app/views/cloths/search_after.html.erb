@@ -1,5 +1,5 @@
 <div id="browse" class="pop_up">
-	<div class="popupHeader"><span>＞　搜尋結果</span><span class="rfloat"><%= link_to '回上頁', '/search.html' %></span><span class="rfloat" id="close">×</span></div>
+	<div class="popupHeader"><span>＞　搜尋結果</span><span class="rfloat" id="close"><span><%= link_to '回上頁', '/search.html' %></span>×</span></div>
 	<div class="popupMain">
 		<ul class="list">
 			<% @cloth = @result %>
@@ -25,7 +25,7 @@
 		    			<% else %>
 		    			<%='非公開' %>
 		    			<% end %></li>
-		    		<li class="plain_text"><div class="plain_text_bold">補充：</div><%= clo['description'] %></li>
+		    		<li class="plain_text"><div class="plain_text_bold">說明：</div><%= clo['description'] %></li>
 		    		<%= link_to '刪除', {:controller => "cloth", :action => "delete", :id => clo.id }, :class => :plain_text_link, confirm: '您確定要刪除？' %>
 
 		    		</ul>
