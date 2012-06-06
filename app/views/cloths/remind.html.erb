@@ -35,7 +35,8 @@
 		    			<% else %>
 		    			<%='非公開' %>
 		    			<% end %></li>
-		    		<li class="plain_text"><div class="plain_text_bold">補充：</div><%= clo['description'] %></li>
+		    		<li class="plain_text"><div class="plain_text_bold">說明：</div><%= clo['description'] %></li>
+		    		<li class="plain_text"><div class="plain_text_bold">補充：</div><%= clo['redRemark'] %></li>
 		    		<%= link_to '刪除', {:controller => "cloth", :action => "delete", :id => clo.id }, :class => :plain_text_link, confirm: '您確定要刪除？' %>
 
 		    		</ul>
