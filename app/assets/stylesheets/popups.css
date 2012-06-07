@@ -1,10 +1,10 @@
 @charset "UTF-8";
 .pop_up{
-	/*width: 900px;*/
-	height: 520px;
+	width: 900px;
+	height: 500px;
 	left: 250px;
 	top: 250px;
-	overflow: hidden;
+	overflow: auto;
 	background-color: #F29C9F;
 }
 .popupHeader {
@@ -25,11 +25,11 @@
 	cursor: pointer;
 }
 .popupMain{
-	height: 520px;
+	height: 480px;
 	width: 100%;
 	background-color: #F7E4E5;
 	/* vertical-align: middle;*/
-	overflow: auto;
+	overflow: hidden;
 }
 /* --------------------------------------------------*/
 .new_pic{
@@ -92,9 +92,9 @@
 }
 .list{
 	width: auto;
-	height: inherit;
-	overflow-x: auto;
-	overflow-y: auto;
+	height: 480px;
+	overflow-x: scroll;
+	overflow-y: scroll;
 	text-align: center;
 	vertical-align: top;
 	white-space: nowrap;

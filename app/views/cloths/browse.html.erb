@@ -4,6 +4,7 @@
 		<ul class="list">
 			<% @user = User.find_by_account( cookies[:user] ) %>
 			<% @cloth = @user.cloths.where(:private_class => cookies[:temp]) %>
+			<% closet = @user["sh"+cookies[:temp]] %>
 			<% if @cloth.empty? %>
 			<div class="if_empty">【這個衣櫃格子是空的】</div>
 			<% end %>
@@ -19,7 +20,7 @@
 		    			<% @color.each do |c| %>
 		    			<font color="<%= c['color'] %>">■</font>
 		    			<% end %></li>
-		    		<li class="plain_text"><div class="plain_text_bold">衣櫃：</div><%= clo['private_class'] %></li>
+		    		<li class="plain_text"><div class="plain_text_bold">衣櫃：</div><%= closet %></li>
 		    		<li class="plain_text"><div class="plain_text_bold">隱私：</div>
 		    			<% if clo['privacy'] == false %>
 		    			<%='公開' %>

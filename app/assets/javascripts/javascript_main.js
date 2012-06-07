@@ -103,24 +103,24 @@ $( "#create" ).click(function() {
 	var new_window = '<div id="window"></div>';
 	$( "#topContent" ).before(new_window);
 	$( "#window" ).css("z-index", 100);
-	$( "#window" ).css("height", "520px").show("clip",{},'fast');
-	document.getElementById( 'window' ).innerHTML = '<iframe src="create.html" scrolling="no" frameborder="0" width="800px" height="100%"></iframe>';
+	$( "#window" ).css("height", "500px").show("clip",{},'fast');
+	document.getElementById( 'window' ).innerHTML = '<iframe src="create.html" scrolling="no" frameborder="0" width="900px" height="100%"></iframe>';
 });
 
 $( "#search" ).click(function() {
 	var new_window = '<div id="window"></div>';
 	$( "#topContent" ).before(new_window);
 	$( "#window" ).css("z-index", 100);
-	$( "#window" ).css("height", "520px").show("clip",{},'fast');
-	document.getElementById( 'window' ).innerHTML = '<iframe src="search.html" scrolling="yes" frameborder="0" width="800px" height="100%"></iframe>';
+	$( "#window" ).css("height", "500px").show("clip",{},'fast');
+	document.getElementById( 'window' ).innerHTML = '<iframe src="search.html" scrolling="yes" frameborder="0" width="900px" height="100%"></iframe>';
 });
 
 $(" #remind ").click(function(){
 	var new_window = '<div id="window"></div>';
 	$( "#topContent" ).before(new_window);
 	$( "#window" ).css("z-index", 100);
-	$( "#window" ).css("height", "520px").show("clip",{},'fast');
-	document.getElementById( 'window' ).innerHTML = '<iframe src="remind.html" scrolling="yes" frameborder="0" width="800px" height="100%"></iframe>';
+	$( "#window" ).css("height", "500px").show("clip",{},'fast');
+	document.getElementById( 'window' ).innerHTML = '<iframe src="remind.html" scrolling="yes" frameborder="0" width="900px" height="100%"></iframe>';
 });
 
 /*$(  "td" ).mouseover(function() {
@@ -168,8 +168,8 @@ $( ".shelf_browse" ).live("click",function(){
 		 	var new_window = '<div id="window"></div>';
 			$( "#topContent" ).before(new_window);
 			$( "#window" ).css("z-index", 100);
-			$( "#window" ).css("height", "520px").show("clip",{},'fast');
-			document.getElementById( 'window' ).innerHTML = '<iframe src="browse.html" scrolling="yes" frameborder="0" width="800px" height="100%"></iframe>';
+			$( "#window" ).css("height", "500px").show("clip",{},'fast');
+			document.getElementById( 'window' ).innerHTML = '<iframe src="browse.html" scrolling="yes" frameborder="0" width="900px" height="100%"></iframe>';
 		 	console.log("yabi");
 		}
 
