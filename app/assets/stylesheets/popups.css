@@ -1,9 +1,11 @@
 @charset "UTF-8";
 .pop_up{
 	/*width: 900px;*/
+	height: 520px;
 	left: 250px;
 	top: 250px;
 	overflow: hidden;
+	background-color: #F29C9F;
 }
 .popupHeader {
 	display: block;
@@ -23,7 +25,7 @@
 	cursor: pointer;
 }
 .popupMain{
-	height: 500px;
+	height: 520px;
 	width: 100%;
 	background-color: #F7E4E5;
 	/* vertical-align: middle;*/

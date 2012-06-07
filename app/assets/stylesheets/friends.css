@@ -2,6 +2,7 @@
 #friends, .friends{
 	border-radius: 10px;
 	width: 450px;
+	margin: 0 auto;
 }
 #friends, .afriend{
 	-webkit-transition-property: background-color, font;

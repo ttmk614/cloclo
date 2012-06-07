@@ -26,10 +26,11 @@ def create_form
                          :image          => cookies[:path], 
                          :color          => params[:choose_color].to_json,
                          :signal         => "lightAvailable")#, :redRemark, :redTime, :signal
-  
-  params[:choose_color].each do |i|
-    c = t.colors.create(:cloth_id   => t[:id],
-                        :color      => i)
+  if params[:choose_color] != nil
+    params[:choose_color].each do |i|
+      c = t.colors.create(:cloth_id   => t[:id],
+                          :color      => i)
+    end
   end
   
   cookies[:temp] = t[:id]
