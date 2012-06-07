@@ -1,6 +1,7 @@
 @charset "UTF-8";
 #friends, .friends{
 	border-radius: 10px;
+	width: 450px;
 }
 #friends, .afriend{
 	-webkit-transition-property: background-color, font;
@@ -28,6 +29,7 @@
 	margin: 5px 5px 20px 5px;
 	background: #FFFFEB;
 	border: 5px solid rgba(172,213,152,0.7);
+	overflow: auto;
 }
 .afriend{
 	border-top: 1px solid rgba(172,213,152,0.5);

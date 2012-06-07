@@ -4,7 +4,7 @@
 	/*background: #D08D34;*/
 	width: 550px;
 	display: inline-block;
-	margin-left: auto; margin-right: auto;
+	margin: 0 auto;
 }
 .shelf {
 	width: 500px;

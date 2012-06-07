@@ -44,6 +44,7 @@
 /*跟頁籤有關的CSS*/
 #right_menu{
 	position: absolute;
+	display: inline-block;
 	right: 0;
 	width: 300px;
 	/*overflow: auto;*/	
@@ -118,7 +119,6 @@
 
 #right_menu #tabs{
 	background: none;
-	height: 300px;
 }
 #right_menu .tabs_back{
 	border: 0;
@@ -141,7 +141,7 @@
 #right_menu .tab_container{
 	font-size: 14px;
 	background: #DFEFFC;
-	height: 550px;
+	height: 450px;
 	width: 100%;
 	border-bottom-left-radius: 7px;
 	border-bottom-right-radius: 7px;

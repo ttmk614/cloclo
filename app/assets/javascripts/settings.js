@@ -50,7 +50,7 @@ $("#sendPost").click(function() {
 		url  : "/post/new",
 		data : { account: $("#sendPost").attr("class") , 
 				 content: $('#postContent').val() },
-		dataType: 'json',
+		dataType: 'text',
 		success : function(response){
 			//console.log("response:"+ response ); 
 			//var output = "<div class='mutton'><div class='aPost'><img src='https://graph.facebook.com/"+ $(".aPost").first().attr("id") + "/picture' />"+ $(".aPost").first().children(".postName").text() + "<br /><a class='postContent'>"+ response['content'] +"</a><br /><a class='postTime'>"+ response['created_at'] +"</a></div></div>";
@@ -78,7 +78,7 @@ $(".sendReply").click(function() {
 		data : { account: $(this).attr("id") , 
 				 postid:  $(this).parent().parent().attr("id"),
 				 content: $(this).siblings("textarea").val() },
-		dataType: 'json',
+		dataType: 'text',
 		success : function(response){
 			console.log("response:"+ response ); 
 			//var output = "<div class='mutton'><div class='aPost'><img src='https://graph.facebook.com/"+ $(".aPost").first().attr("id") + "/picture' />"+ $(".aPost").first().children(".postName").text() + "<br /><a class='postContent'>"+ response['content'] +"</a><br /><a class='postTime'>"+ response['created_at'] +"</a></div></div>";

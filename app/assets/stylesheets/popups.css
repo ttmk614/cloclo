@@ -1,9 +1,10 @@
 @charset "UTF-8";
 .pop_up{
-	width: 900px;
-	height: 500px;
+	/*width: 900px;*/
+	height: 400px;
 	left: 250px;
-
+	top: 250px;
+	overflow: hidden;
 }
 .popupHeader {
 	display: block;
@@ -23,10 +24,11 @@
 	cursor: pointer;
 }
 .popupMain{
-	height: 480px;
+	height: inherit;
 	width: 100%;
 	background-color: #F7E4E5;
-	overflow: hidden;
+	vertical-align: middle;
+	overflow: auto;
 }
 /* --------------------------------------------------*/
 .new_pic{
@@ -86,10 +88,10 @@
 	display: inline-block;
 }
 .list{
-	height: 480px;
 	width: auto;
-	overflow-x: scroll;
-	overflow-y: scroll;
+	height: inherit;
+	overflow-x: auto;
+	overflow-y: auto;
 	text-align: center;
 	white-space: nowrap;
 }
@@ -98,6 +100,10 @@
 	height: 20px;
 	text-align: center;
 	vertical-align: middle;
+}
+.lightAvailable, .lightNotAvailable{
+	font-size: 24px;
+	padding: 10px 0;	
 }
 .lightAvailable{
 	color: #00EF00;
